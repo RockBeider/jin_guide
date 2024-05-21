@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' "/>
+  <meta name="viewport" content="width=1200">
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico"> -->
+  <link rel="stylesheet" type="text/css" href="./guide/css/guide.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/pc.css">
+  <script src="./assets/js/lib/juqery-3.7.0.min.js"></script> 
+  <script src="./assets/js/common.js"></script> 
+  <title>가이드</title>
+</head>  
+<body>
+  <div class="guide_wrap">  
+    <!-- 헤더 네이게이션 -->      
+    <header class="header">       
+      <h1>가이드</h1>   
+      <nav class="gnb">    
+        <ul class="sub_menu">      
+          <li class="on"><a class="path on" href=".list_pc">List PCsd</a></li>
+          <li><a class="path" href=".list_mo">List MO</a></li>
+          <li><a class="" target="_blank" href="./template.html">Template</a></li>
+        </ul>
+      </nav>      
+    </header>      
+      
+    <!-- 컨테이너 -->   
+    <section class="container">
+      <!-- Path : List PC -->  
+      <div class="pages list_pc on">
+        <include src="./guide/html/include/list_pc.html"></include>
+      </div> 
+      <!-- // Path : List PC -->
+
+      <!-- Path : List MO --> 
+      <div class="pages list_mo">
+        <include src="./guide/html/include/list_mo.html"></include>
+      </div>
+      <!-- // Path : List MO --> 
+    </section>
+  </div>
+
+  <script>
+    var $window = $(window);
+    var $guideWrap = $(".guide_wrap");
+    var $naviBtn = $guideWrap.find('.navi_btn');
+    var $gnb = $guideWrap.find(".gnb");
+    var $container = $guideWrap.find(".container");
+    var _timer = null
+
+    var isMobile = function () {
+      var _userAgent = navigator.userAgent;
+      if (_userAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || _userAgent.match(/LG|SAMSUNG|Samsung/) != null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    var windowResize = function (_device) {
+      if (_device.width() >= 768) {
+        $guideWrap.addClass("navi_opened");
+      } else {
+        $guideWrap.removeClass("navi_opened");
+      }
+    }; 
+
+    // gnb 클릭 시 컨텐츠 변경
+    $gnb.on('click', '.path', function (e) {
+      e.preventDefault();
+      var _this = $(this);
+      var _target = _this.attr('href');
+      _this.closest('.sub_menu').find('li').removeClass('on');
+      _this.closest('li').addClass('on');
+ 
+      $container.find('.pages').removeClass('on');
+      $(_target).addClass('on');
+    });
+
+    $window.on('resize', function (e) {
+      var _this = $(this);
+      if (!_timer) {
+        _timer = setTimeout(function () {
+          _timer = null; 
+          windowResize(_this);
+        }, 200);
+      }
+    });
+
+    windowResize($window);
+
+    /* path */
+    var $category = $('.category');
+    var $accordionBtn = $category.find('.tit');
+
+    $accordionBtn.off('click').on('click', function () {
+      var _this = $(this);
+      var _category = _this.closest('.category');
+      var _open = !_category.hasClass('close');
+      if (_open) { //open
+        $(this).next().slideUp(100);
+        _category.addClass('close');
+      } else {
+        $(this).next().slideDown(100);
+        _category.removeClass('close');
+      }
+      return false;
+    });
+ 
+    /* 값 구하기 */
+    $('.pub_list').each(function () {
+      let $total = $(this).find('.tr').length; //총 페이지 갯수
+      let $finish = $(this).find('.finish').length; //완료 갯수
+      let $percent = Math.floor($finish / $total * 100); // 진척률
+
+      $(this).find('.page_total').text($total);
+      $(this).find('.page_finish').text($finish);
+      $(this).find('.page_percent').text(`${$percent} %`);
+    });
+
+    /* 컴포넌트 메뉴로 scrollTo 이동 */
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+header {
+    height: 60px;
+    padding: 20px 40px;
+    background: #A78B71;
+}
+main.container {
+    flex: 1;
+    padding: 20px 40px;
+}
+footer { 
+    height: 80px;
+    padding: 20px 40px;
+    background: #583E26;
+    color: #fff;
+}
