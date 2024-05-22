@@ -190,13 +190,13 @@ $.btnScroll = function () {
   var scrollArea = $('.guide_template');
   var scrollWrap = $('.scroll_wrap');
   var scrollArr = []; // offset.top
-  var scrollIdx = 0; // article index
+  var scrollIdx = 0; // category index
 
   var tabBtns = $('.tab_menu .tab_btn');
   var tabCont = $('.tab_wrap .tab_cont');
   if (!tabBtns.length) return false;
   function scrollInit() {
-    getTop(scrollIdx); // article top 가져오기
+    getTop(scrollIdx); // category top 가져오기
     getScrollIdx(); // scroll index 가져오기 + btnChange(idx)
     tabCont.each(function () {
       // disable 제외 버튼 클릭 시 scroll 이동
@@ -215,9 +215,9 @@ $.btnScroll = function () {
   function getTop(set) {
     scrollArr = [];
     var scrollWrapTop = scrollWrap.eq(set).offset().top;
-    var article = $('article', scrollWrap[set]);
+    var category = $('.category', scrollWrap[set]);
     // console.log(scrollWrapTop) 
-    article.each(function () {
+    category.each(function () {
       var sum = Math.floor($(this).offset().top - scrollWrapTop);
       scrollArr.push(sum);
     });

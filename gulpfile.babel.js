@@ -61,45 +61,45 @@ const gindexs = () =>
 		.pipe(dest(paths.dist.gindex))
 		
 const guides = () =>  
-	src(paths.work.guide, { since: lastRun(guides) })
+	src(paths.work.guide)
 		.pipe(include())		
 		.pipe(dest(paths.dist.guide))
 		
 const gstyles = () => 
-	src(paths.work.gscss, { sourcemaps: true, since: lastRun(gstyles) })
+	src(paths.work.gscss, { sourcemaps: true })
 		.pipe(scss().on('error', scss.logError))
 		.pipe(dest(paths.dist.gcss, { sourcemaps: true }))
 
 const gimgs = () =>  
-	src(paths.work.gimg, {allowEmpty:true, since: lastRun(gimgs)})
+	src(paths.work.gimg, {allowEmpty:true})
 	.pipe(cache(imageMinify({ optimizationLevel: 3, progressive: true, interlaced: true }))) // 기존파일 캐싱 및 압축
 	.pipe(dest(paths.dist.gimg))
 		
 
 const htmls = () =>  
-	src(paths.work.html, { since: lastRun(htmls) })
+	src(paths.work.html)
 		.pipe(include())
 		.pipe(dest(paths.dist.html))
 
 const styles = () => 
-	src(paths.work.scss, { sourcemaps: true, since: lastRun(scripts) })
+	src(paths.work.scss, { sourcemaps: true })
 		.pipe(scss().on('error', scss.logError))
 		.pipe(autoPrefixer('last 2 versions'))
 		.pipe(dest(paths.dist.css, { sourcemaps: true }))
 
 const scripts = () => 
-	src(paths.work.js, { since: lastRun(scripts) })
+	src(paths.work.js)
 		.pipe(babel())
 		.pipe(debug())
 		.pipe(dest(paths.dist.js)) 
 
 const images = () => 
-	src(paths.work.img, {allowEmpty:true, since: lastRun(images) })
+	src(paths.work.img, {allowEmpty:true})
 		.pipe(cache(imageMinify({ optimizationLevel: 3, progressive: true, interlaced: true }))) // 기존파일 캐싱 및 압축
 		.pipe(dest(paths.dist.img))
 
 const fonts = () => 
-	src(paths.work.font, { since: lastRun(fonts) })
+	src(paths.work.font)
 		.pipe(dest(paths.dist.font))
 
 /**************************************
@@ -128,7 +128,7 @@ const watchTask = () =>
 	watch(paths.work.img, {events: 'all'}, series(imgClean, images)).on('change', browserSync.reload)
 	watch(paths.work.font, {events: 'all'}, series(fontClean, fonts)).on('change', browserSync.reload)
 
-const browserSyncServer = () => 
+const browserSyncServer = () =>  
 	browserSync.init({ 
 		server: {
 			baseDir: './dist/',

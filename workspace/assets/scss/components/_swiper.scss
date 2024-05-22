@@ -1,0 +1,116 @@
+.pc_type {}
+.mobile_type {}
+
+.tit {
+  &_lv1 {}
+  &_lv2 { font-size: 28px; }
+  &_lv3 {}
+}
+
+.tit_wrap {
+  display: flex;
+  position: relative;
+  &.between_center { 
+    justify-content: space-between; 
+    align-items: center;
+  }
+}
+
+.pagination {
+  display: inline-flex; 
+  height: 32px; 
+  border: 1px solid #ccc; 
+  border-radius: 2px;
+  > a {
+    position: static; 
+    text-indent: -9999px; 
+    margin: 0; 
+    min-width: 30px; 
+    width: 30px; 
+    height: 30px;
+    color: #000;  
+    &:after { font-size:13px; text-indent: 0; margin: 0}
+    + a { border-left: 1px solid #ccc; }
+  }
+}
+
+/** swiper progress **/
+.swiper_progress {
+  width: 100%;
+  .swiper-wrapper {
+    margin-bottom: 30px;
+  }
+  .swiper-pagination { 
+    top: unset;
+    bottom: 0;
+    height: 2px; 
+  }
+  .swiper-pagination-progressbar-fill {
+    background: #000; 
+    height: 2px; 
+  }
+  &.has_btn {
+    .swiper_arrow_wrap { opacity: 0; transition: 0.4s ease; }
+    &:hover .swiper_arrow_wrap { 
+      opacity: 1;
+    }
+    .swiper-button-next, 
+    .swiper-button-prev { 
+      width: 20px; 
+      height: 20px; 
+      margin-top: -10px;
+      &.swiper-button-disabled, 
+      &.swiper-button-disabled {opacity: 0 }
+      &:after, 
+      &:after { 
+        display: inline-flex; 
+        background: rgba(#000, 0.5) url('../../assets/img/ico_arrow_right_20.png') no-repeat center; 
+        font-size: 0; 
+        width: 20px; 
+        height: 30px; 
+        opacity: 1
+      }
+    }
+    .swiper-button-next{ right: 0 } 
+    .swiper-button-prev{ left: 0; 
+      &:after{
+        transform: rotate(-180deg);
+      }}
+  }
+}
+
+.product_item {
+  display: block;
+  position: relative;
+  .thumb_area {
+    position: relative;
+    padding-bottom: 133%;
+    overflow: hidden;
+    z-index: 1;
+    background: url('../../assets/img/common/no_thum.png') no-repeat 50% 50%;
+    background-size: cover;
+    .thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .info_area {
+    margin-top: 12px;
+    padding-right: 20px;
+    .tit {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .sub {
+      font-size: 14px;
+    }
+  }
+}

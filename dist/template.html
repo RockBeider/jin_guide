@@ -2,23 +2,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' "/>
-  <meta name="viewport" content="width=1200">
+  <meta name="viewport" content="width=1200" />
   <!-- <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico"> -->
-  <link rel="stylesheet" type="text/css" href="./guide/css/guide.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/pc.css">
-  <script src="./assets/js/lib/juqery-3.7.0.min.js"></script> 
-  <script src="./assets/js/common.js"></script> 
+  <link rel="stylesheet" type="text/css" href="./guide/css/guide.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/pc.css" />
+
+  <script src="./assets/js/lib/jquery-3.7.1.min.js"></script>
+  <script src="./assets/js/lib/swiper-bundle.min.js"></script><!-- swiper -->
+  <script src="./assets/js/common.js"></script>
   <title>가이드</title>
 </head>
+
 <body>
   <div class="guide_wrap">
     <!-- 헤더 네이게이션 -->
     <header class="header">
       <h1>가이드</h1>
-      <nav class="gnb">
+      <nav class="gnb"> 
         <ul class="sub_menu">
           <li class="on"><a class="path on" href="./index.html">퍼블리스트</a></li>
         </ul>
@@ -32,20 +35,15 @@
           <!-- tab_wrap --> 
           <div class="tab_wrap">
             <div class="tab_menu">
-              <button type="button" class="tab_btn is_active" data-tab="tab-01">COMMON</button>
-              <button type="button" class="tab_btn" data-tab="tab-02">PC</button>
+              <button type="button" class="tab_btn is_active" data-tab="tab-02">PC</button>
               <button type="button" class="tab_btn" data-tab="tab-03">MO</button>
               <button type="button" class="tab_btn" data-tab="tab-04">LIB</button>
             </div> 
             <div class="tab_cont_wrap">
-              <div data-id="tab-01" class="tab_cont is_active">
+              <div data-id="tab-02" class="tab_cont is_active">
                 <div class="scroll_menu">
-                  <button type="button" class="btn">Color</button> 
-                </div> 
-              </div>
-              <div data-id="tab-02" class="tab_cont">
-                <div class="scroll_menu">
-                  <button type="button" class="btn is_active">Popup</button> 
+                  <button type="button" class="btn is_active">Swiper</button> 
+                  <button type="button" class="btn">Popup</button> 
                   <button type="button" class="btn">Font</button>
                   <button type="button" class="btn">Button</button>
                   <button type="button" class="btn">Tab</button> 
@@ -59,7 +57,8 @@
               </div>
               <div data-id="tab-03" class="tab_cont">
                 <div class="scroll_menu">
-                  <button type="button" class="btn is_active">Popup</button>
+                  <button type="button" class="btn is_active">Swiper</button>
+                  <button type="button" class="btn">Popup</button>
                   <button type="button" class="btn">Font</button>
                   <button type="button" class="btn">Button</button>
                   <button type="button" class="btn">Tab</button> 
@@ -82,36 +81,225 @@
             </div> 
           </div> 
           <!-- //tab_wrap --> 
-
+ 
           <!-- scroll contents --> 
-          <!-- COMMON --> 
+
+          <!-- PC -->
           <div class="scroll_wrap is_active">
             <div class="category">
-              <p class="tit">Color</p>
+              <p class="tit">Swiper</p>
               <div class="cont">
-                <div class="c_guide row">
-                    <div class="th">메인컬러</div>
-                    <div class="td">
-                        <div class="color main"></div>
-                    </div>
-                    <div class="th">서브컬러</div>
-                    <div class="td">
-                        <div class="color sub"></div>
-                    </div>
-                    <div class="th">포인트컬러</div>
-                    <div class="td">
-                        <div class="color point"></div>
-                    </div>
-                </div> 
+                <!-- swiper -->
+                <div class="tit_wrap between_center">
+                  <h2 class="tit_lv2">SWIPER PROGRESS</h2>
+                  <div class="pagination type_arrow">
+                    <a href="#none" class="swiper-button-prev">앞으로</a>
+                    <a href="#none" class="swiper-button-next">뒤로</a>
+                  </div>
+                </div>
 
+                <!-- progressbar , slide 4개 -->
+                <div class="swiper swiper_progress">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img01.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">ACNE STUDIO</p>
+                          <span class="sub">아크네스튜디오</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img02.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">GOOD MORNING GENERAL STORE</p>
+                          <span class="sub">굿모닝제너럴스토어</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img03.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">SALTANDCHOCOLATE</p>
+                          <span class="sub">솔트앤초콜릿</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img04.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">GOOD MORNING GENERAL STORE</p>
+                          <span class="sub">굿모닝제너럴스토어</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img04.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">ACNE STUDIO</p>
+                          <span class="sub">아크네스튜디오</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img03.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">ACNE STUDIO</p>
+                          <span class="sub">굿모닝제너럴스토어</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <script>
+                  var swiper_progress = new Swiper(".swiper_progress", {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                    threshold: 0,
+                    slidesPerGroup: 4,
+                    ally: false,
+                    pagination: {
+                      el: ".swiper_progress .swiper-pagination",
+                      type: "progressbar",
+                    },
+                    navigation: {
+                      nextEl: ".pagination.type_arrow > .swiper-button-next",
+                      prevEl: ".pagination.type_arrow > .swiper-button-prev",
+                    },
+                  });
+                </script>
+                <!--// progressbar , slide 4개 -->
+
+
+                <div class="tit_wrap between_center">
+                  <h2 class="tit_lv2">SWIPER PROGRESS WITH BTNS</h2>
+                  <div class="pagination type_arrow">
+                    <a href="#none" class="swiper-button-prev">앞으로</a>
+                    <a href="#none" class="swiper-button-next">뒤로</a>
+                  </div>
+                </div>
+
+                <!-- progressbar , slide 3개 , hover 좌우버튼 -->
+                <div class="swiper swiper_progress has_btn">		
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_2.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_3.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_4.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_2.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_3.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_4.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none">
+                        <span class="thumb">
+                          <img src="../../assets/img/temp/brand_300x375_2.png" alt="">
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="swiper_arrow_wrap">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+
+                <script>
+                    var swiper_progress_btn = new Swiper(".swiper_progress.has_btn", {
+                    slidesPerView: 3,
+                    spaceBetween: 4,
+                    nested: true,
+                    ally: false,
+                    pagination: {
+                      el: ".swiper_progress.has_btn > .swiper-pagination",
+                      type: "progressbar",
+                    },
+
+                    navigation: {
+                      nextEl: ".swiper_progress.has_btn .swiper-button-next",
+                      prevEl: ".swiper_progress.has_btn .swiper-button-prev",
+                    },
+                  });
+                </script>
+
+                <!--// progressbar , slide 3개 , hover 좌우버튼 -->
 
               </div>
             </div>
-          </div>
-          <!-- //COMMON -->
 
-          <!-- PC -->
-          <div class="scroll_wrap">
             <div class="category">
               <p class="tit">Popup</p>
               <div class="cont">
@@ -187,6 +375,125 @@
 
           <!-- MO -->
           <div class="scroll_wrap">
+            <div class="category">
+              <p class="tit">Swiper</p>
+              <div class="cont">
+                <!-- swiper -->
+                <div class="tit_wrap between_center">
+                  <h2 class="tit_lv2">PRODUCT PICK</h2>
+                  <div class="pagination type_arrow">
+                    <a href="#none" class="swiper-button-prev">앞으로</a>
+                    <a href="#none" class="swiper-button-next">뒤로</a>
+                  </div>
+                </div>
+
+                <!--리스트 4개출력 swiper-->
+                <div class="swiper swiper_progress">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img01.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">ACNE STUDIO</p>
+                          <span class="sub">아크네스튜디오</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img02.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">GOOD MORNING GENERAL STORE</p>
+                          <span class="sub">굿모닝제너럴스토어</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img03.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">SALTANDCHOCOLATE</p>
+                          <span class="sub">솔트앤초콜릿</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img04.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">GOOD MORNING GENERAL STORE</p>
+                          <span class="sub">굿모닝제너럴스토어</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img04.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">ACNE STUDIO</p>
+                          <span class="sub">아크네스튜디오</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb_area">
+                          <div class="thumb">
+                            <img src="../../assets/img/temp/pick_img03.png" alt="" />
+                          </div>
+                        </div>
+                        <div class="info_area">
+                          <p class="tit">ACNE STUDIO</p>
+                          <span class="sub">굿모닝제너럴스토어</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <!--//리스트 4개출력 swiper-->
+                <script>
+                  //프로그래스
+                  var swiper_progress = new Swiper(".swiper_progress", {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                    threshold: 0,
+                    slidesPerGroup: 4,
+                    ally: false,
+                    pagination: {
+                      el: ".swiper_progress .swiper-pagination",
+                      type: "progressbar",
+                    },
+                    navigation: {
+                      nextEl: ".pagination.type_arrow > .swiper-button-next",
+                      prevEl: ".pagination.type_arrow > .swiper-button-prev",
+                    },
+                  });
+                </script>
+
+              </div>
+            </div>
+
             <div class="category">
               <p class="tit">Popup</p>
               <div class="cont">
@@ -266,7 +573,21 @@
             <div class="cont">
               
             </div>
-            <p class="tit">JqueryUi</p>
+          </div>
+          <div class="category">
+            <p class="tit">banner</p>
+            <div class="cont">
+              
+            </div>
+          </div>
+          <div class="category">
+            <p class="tit">graph</p>
+            <div class="cont">
+              
+            </div>
+          </div>
+          <div class="category">
+            <p class="tit">animate</p>
             <div class="cont">
               
             </div>

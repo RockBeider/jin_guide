@@ -1,24 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' "/>
-  <meta name="viewport" content="width=1200">
-  <!-- <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico"> -->
-  <link rel="stylesheet" type="text/css" href="./guide/css/guide.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/pc.css">
-  <script src="./assets/js/lib/juqery-3.7.0.min.js"></script> 
-  <script src="./assets/js/common.js"></script> 
-  <title>가이드</title>
-</head>
+<include src="./guide/html/include/head.html"></include>
 <body>
   <div class="guide_wrap">
     <!-- 헤더 네이게이션 -->
     <header class="header">
       <h1>가이드</h1>
-      <nav class="gnb">
+      <nav class="gnb"> 
         <ul class="sub_menu">
           <li class="on"><a class="path on" href="./index.html">퍼블리스트</a></li>
         </ul>
@@ -32,20 +21,15 @@
           <!-- tab_wrap --> 
           <div class="tab_wrap">
             <div class="tab_menu">
-              <button type="button" class="tab_btn is_active" data-tab="tab-01">COMMON</button>
-              <button type="button" class="tab_btn" data-tab="tab-02">PC</button>
+              <button type="button" class="tab_btn is_active" data-tab="tab-02">PC</button>
               <button type="button" class="tab_btn" data-tab="tab-03">MO</button>
               <button type="button" class="tab_btn" data-tab="tab-04">LIB</button>
             </div> 
             <div class="tab_cont_wrap">
-              <div data-id="tab-01" class="tab_cont is_active">
+              <div data-id="tab-02" class="tab_cont is_active">
                 <div class="scroll_menu">
-                  <button type="button" class="btn">Color</button> 
-                </div> 
-              </div>
-              <div data-id="tab-02" class="tab_cont">
-                <div class="scroll_menu">
-                  <button type="button" class="btn is_active">Popup</button> 
+                  <button type="button" class="btn is_active">Swiper</button> 
+                  <button type="button" class="btn">Popup</button> 
                   <button type="button" class="btn">Font</button>
                   <button type="button" class="btn">Button</button>
                   <button type="button" class="btn">Tab</button> 
@@ -59,7 +43,8 @@
               </div>
               <div data-id="tab-03" class="tab_cont">
                 <div class="scroll_menu">
-                  <button type="button" class="btn is_active">Popup</button>
+                  <button type="button" class="btn is_active">Swiper</button>
+                  <button type="button" class="btn">Popup</button>
                   <button type="button" class="btn">Font</button>
                   <button type="button" class="btn">Button</button>
                   <button type="button" class="btn">Tab</button> 
@@ -82,21 +67,18 @@
             </div> 
           </div> 
           <!-- //tab_wrap --> 
-
+ 
           <!-- scroll contents --> 
-          <!-- COMMON --> 
-          <div class="scroll_wrap is_active">
-            <div class="category">
-              <p class="tit">Color</p>
-              <div class="cont">
-                <include src="./guide/html/color.html"></include>
-              </div>
-            </div>
-          </div>
-          <!-- //COMMON -->
 
           <!-- PC -->
-          <div class="scroll_wrap">
+          <div class="scroll_wrap is_active">
+            <div class="category">
+              <p class="tit">Swiper</p>
+              <div class="cont">
+                <include src="./guide/html/swiper_pc.html"></include>
+              </div>
+            </div>
+
             <div class="category">
               <p class="tit">Popup</p>
               <div class="cont">
@@ -172,6 +154,13 @@
 
           <!-- MO -->
           <div class="scroll_wrap">
+            <div class="category">
+              <p class="tit">Swiper</p>
+              <div class="cont">
+                <include src="./guide/html/swiper_mo.html"></include>
+              </div>
+            </div>
+
             <div class="category">
               <p class="tit">Popup</p>
               <div class="cont">
@@ -251,7 +240,21 @@
             <div class="cont">
               <include src="./guide/html/lib_jquery_ui.html"></include>
             </div>
-            <p class="tit">JqueryUi</p>
+          </div>
+          <div class="category">
+            <p class="tit">banner</p>
+            <div class="cont">
+              <include src="./guide/html/lib_banner.html"></include>
+            </div>
+          </div>
+          <div class="category">
+            <p class="tit">graph</p>
+            <div class="cont">
+              <include src="./guide/html/lib_banner.html"></include>
+            </div>
+          </div>
+          <div class="category">
+            <p class="tit">animate</p>
             <div class="cont">
               <include src="./guide/html/lib_banner.html"></include>
             </div>
