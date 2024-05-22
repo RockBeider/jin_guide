@@ -1,6 +1,6 @@
 
 import gulp from 'gulp';
-const { series, parallel, src, dest, watch } = gulp;
+const { series, parallel, src, dest, watch, lastRun } = gulp;
 
 /* html */
 import include from 'gulp-html-tag-include';
@@ -61,45 +61,45 @@ const gindexs = () =>
 		.pipe(dest(paths.dist.gindex))
 		
 const guides = () =>  
-	src(paths.work.guide)
+	src(paths.work.guide, { since: lastRun(guides) })
 		.pipe(include())		
 		.pipe(dest(paths.dist.guide))
 		
 const gstyles = () => 
-	src(paths.work.gscss, { sourcemaps: true })
+	src(paths.work.gscss, { sourcemaps: true, since: lastRun(gstyles) })
 		.pipe(scss().on('error', scss.logError))
 		.pipe(dest(paths.dist.gcss, { sourcemaps: true }))
 
 const gimgs = () =>  
-	src(paths.work.gimg, {allowEmpty:true})
+	src(paths.work.gimg, {allowEmpty:true, since: lastRun(gimgs)})
 	.pipe(cache(imageMinify({ optimizationLevel: 3, progressive: true, interlaced: true }))) // 기존파일 캐싱 및 압축
 	.pipe(dest(paths.dist.gimg))
 		
 
 const htmls = () =>  
-	src(paths.work.html)
+	src(paths.work.html, { since: lastRun(htmls) })
 		.pipe(include())
 		.pipe(dest(paths.dist.html))
 
 const styles = () => 
-	src(paths.work.scss, { sourcemaps: true })
+	src(paths.work.scss, { sourcemaps: true, since: lastRun(scripts) })
 		.pipe(scss().on('error', scss.logError))
 		.pipe(autoPrefixer('last 2 versions'))
 		.pipe(dest(paths.dist.css, { sourcemaps: true }))
 
 const scripts = () => 
-	src(paths.work.js)
+	src(paths.work.js, { since: lastRun(scripts) })
 		.pipe(babel())
 		.pipe(debug())
 		.pipe(dest(paths.dist.js)) 
 
 const images = () => 
-	src(paths.work.img, {allowEmpty:true})
+	src(paths.work.img, {allowEmpty:true, since: lastRun(images) })
 		.pipe(cache(imageMinify({ optimizationLevel: 3, progressive: true, interlaced: true }))) // 기존파일 캐싱 및 압축
 		.pipe(dest(paths.dist.img))
 
 const fonts = () => 
-	src(paths.work.font)
+	src(paths.work.font, { since: lastRun(fonts) })
 		.pipe(dest(paths.dist.font))
 
 /**************************************
@@ -107,7 +107,7 @@ const fonts = () =>
  **************************************/ 
 const clean = () => deleteAsync(['./dist/'])
 
-const gindexClean = () => deleteAsync([paths.dist.gindex])
+const gindexClean = () => deleteAsync(['./dist/index.html', './dist/template.html'])
 const guideClean = () => deleteAsync([paths.dist.guide])
 const gcssClean = () => deleteAsync([paths.dist.gcss])
 const gimgClean = () => deleteAsync([paths.dist.gimg])
@@ -129,15 +129,10 @@ const watchTask = () =>
 	watch(paths.work.font, {events: 'all'}, series(fontClean, fonts)).on('change', browserSync.reload)
 
 const browserSyncServer = () => 
-	browserSync.init({
+	browserSync.init({ 
 		server: {
 			baseDir: './dist/',
-			index: 'index.html',
-			// proxy:{
-			// 	target: 'http://localhost:3000/',
-			// 	ws: true,
-			// }
-		} 
+		},
 	})
 	watchTask()
 

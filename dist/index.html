@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' "/>
+  <meta name="viewport" content="width=1200">
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico"> -->
+  <link rel="stylesheet" type="text/css" href="./guide/css/guide.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/pc.css">
+  <script src="./assets/js/lib/juqery-3.7.0.min.js"></script> 
+  <script src="./assets/js/common.js"></script> 
+  <title>가이드</title>
+</head>  
+<body>
+  <div class="guide_wrap">  
+    <!-- 헤더 네이게이션 -->      
+    <header class="header">       
+      <h1>가이드</h1>   
+      <nav class="gnb">    
+        <ul class="sub_menu">      
+          <li class="on"><a class="path on" href=".list_pc">List PC</a></li>
+          <li><a class="path" href=".list_mo">List MO</a></li>
+          <li><a class="" target="_blank" href="./template.html">Template</a></li>
+        </ul>
+      </nav>      
+    </header>       
+       
+    <!-- 컨테이너 -->     
+    <section class="container"> 
+      <!-- Path : List PC -->  
+      <div class="pages list_pc on">
+        <h2 class="pub_tit"><span>프로젝트</span> ::: PC</h2> 
+        <div class="pub_list"> 
+          <dl class="pub_info">
+            <dt>총 페이지</dt>
+            <dd class="page_total"></dd>
+            <dt>완료</dt>
+            <dd class="page_finish"></dd>
+            <dt>진척률</dt>
+            <dd class="page_percent"></dd>
+          </dl>
+          <!--
+            .state.wait : "대기중" 
+            .state.ing : "작업중"
+            .state.finish : "완료"
+            .state.del : "취소"
+          -->
+          <!-- 공통 -->
+          <div class="category"> 
+            <h3 class="tit"><a href="#">공통<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li><a href="id_0.html" target="_blank">depth2</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">depth2</div>
+                  <div class="td url">
+                    <a href="id_0.html" target="_blank">id_0.html</a>
+                  </div>
+                  <div class="td name">작업자</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state wait"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //공통 -->
+
+          <!-- menu1 -->
+          <div class="category">
+            <h3 class="tit"><a href="#">01_메뉴1<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li><a href="id_1.html" target="_blank">depth2</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">id_1</div>
+                  <div class="td url">
+                    <a href="id_1.html" target="_blank">id_1.html</a>
+                  </div>
+                  <div class="td name">홍길동</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state ing"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //menu1 -->
+          <!-- //menu2 -->
+          <div class="category">
+            <h3 class="tit"><a href="#">02_메뉴2<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li>depth2</li>
+                      <li><a href="id_2.html" target="_blank">depth3</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">id_2</div>
+                  <div class="td url">
+                    <a href="id_2.html" target="_blank">id_2.html</a>
+                  </div>
+                  <div class="td name">홍길동</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state finish"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //menu2 -->
+          <!-- menu3 -->
+          <div class="category">
+            <h3 class="tit"><a href="#">03_메뉴3<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li>depth2</li>
+                      <li><a href="id_3.html" target="_blank">depth3</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">id_3</div>
+                  <div class="td url">
+                    <a href="id_3.html" target="_blank">id_3.html</a>
+                  </div>
+                  <div class="td name">홍길동</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state del"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //menu3 -->
+        </div>
+      </div> 
+      <!-- // Path : List PC -->
+
+      <!-- Path : List MO -->  
+      <div class="pages list_mo">
+        <h2 class="pub_tit"><span>프로젝트</span> ::: MO</h2>
+        <div class="pub_list">
+          <dl class="pub_info">
+            <dt>총 페이지</dt>
+            <dd class="page_total"></dd>
+            <dt>완료</dt>
+            <dd class="page_finish"></dd>
+            <dt>진척률</dt>
+            <dd class="page_percent"></dd> 
+          </dl>
+          <!--
+            .state.wait : "대기중" 
+            .state.ing : "작업중"
+            .state.finish : "완료"
+            .state.del : "취소"
+          -->
+          <!-- 공통 -->
+          <div class="category"> 
+            <h3 class="tit"><a href="#">공통<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li><a href="id_0.html" target="_blank">depth2</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">depth2</div>
+                  <div class="td url">
+                    <a href="id_0.html" target="_blank">id_0.html</a>
+                  </div>
+                  <div class="td name">작업자</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state wait"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //공통 -->
+
+          <!-- menu1 -->
+          <div class="category">
+            <h3 class="tit"><a href="#">01_메뉴1<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li><a href="id_1.html" target="_blank">depth2</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">id_1</div>
+                  <div class="td url">
+                    <a href="id_1.html" target="_blank">id_1.html</a>
+                  </div>
+                  <div class="td name">홍길동</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state ing"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //menu1 -->
+          <!-- //menu2 -->
+          <div class="category">
+            <h3 class="tit"><a href="#">02_메뉴2<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li>depth2</li>
+                      <li><a href="id_2.html" target="_blank">depth3</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">id_2</div>
+                  <div class="td url">
+                    <a href="id_2.html" target="_blank">id_2.html</a>
+                  </div>
+                  <div class="td name">홍길동</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state finish"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //menu2 -->
+          <!-- menu3 -->
+          <div class="category">
+            <h3 class="tit"><a href="#">03_메뉴3<span class="ico_arrow"><img src="./guide/img/ico_arrow_up.svg"></span></a></h3>
+            <div class="tbl_area">
+              <div class='thead'>
+                <div class="th depth">Depth</div>
+                <div class="th id">화면ID</div>
+                <div class="th url">URL</div>
+                <div class="th name">작업자</div>
+                <div class="th date">Date</div>
+                <div class="th state">state</div>
+                <div class="th desc">비고</div>
+              </div>
+              <div class='tbody'>
+                <div class="tr">
+                  <div class="td depth">
+                    <ul>
+                      <li>depth1</li>
+                      <li>depth2</li>
+                      <li><a href="id_3.html" target="_blank">depth3</a></li>
+                    </ul>
+                  </div>
+                  <div class="td id">id_3</div>
+                  <div class="td url">
+                    <a href="id_3.html" target="_blank">id_3.html</a>
+                  </div>
+                  <div class="td name">홍길동</div>
+                  <div class="td date">00-00</div>
+                  <div class="td state del"></div>
+                  <div class="td desc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //menu3 -->
+        </div>
+      </div>
+      <!-- // Path : List MO -->  
+    </section>
+  </div>
+
+  <script>
+    var $window = $(window);
+    var $guideWrap = $(".guide_wrap"); 
+    var $naviBtn = $guideWrap.find('.navi_btn');
+    var $gnb = $guideWrap.find(".gnb");
+    var $container = $guideWrap.find(".container");
+    var _timer = null
+
+    var isMobile = function () {
+      var _userAgent = navigator.userAgent;
+      if (_userAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || _userAgent.match(/LG|SAMSUNG|Samsung/) != null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    var windowResize = function (_device) {
+      if (_device.width() >= 768) {
+        $guideWrap.addClass("navi_opened");
+      } else {
+        $guideWrap.removeClass("navi_opened");
+      }
+    }; 
+
+    // gnb 클릭 시 컨텐츠 변경
+    $gnb.on('click', '.path', function (e) {
+      e.preventDefault();
+      var _this = $(this); 
+      var _target = _this.attr('href');
+      _this.closest('.sub_menu').find('li').removeClass('on');
+      _this.closest('li').addClass('on'); 
+ 
+      $container.find('.pages').removeClass('on');
+      $(_target).addClass('on');
+    });
+
+    $window.on('resize', function (e) {
+      var _this = $(this);
+      if (!_timer) {
+        _timer = setTimeout(function () {
+          _timer = null; 
+          windowResize(_this);
+        }, 200);
+      }
+    });
+
+    windowResize($window);
+
+    /* path */
+    var $category = $('.category');
+    var $accordionBtn = $category.find('.tit');
+
+    $accordionBtn.off('click').on('click', function () {
+      var _this = $(this); 
+      var _category = _this.closest('.category');  
+      var _open = !_category.hasClass('close'); 
+      if (_open) { //open
+        $(this).next().slideUp(100);
+        _category.addClass('close'); 
+      } else {
+        $(this).next().slideDown(100);
+        _category.removeClass('close');
+      }
+      return false;
+    }); 
+   
+    /* 값 구하기 */ 
+    $('.pub_list').each(function () {
+      let $total = $(this).find('.tr').length; //총 페이지 갯수
+      let $finish = $(this).find('.finish').length; //완료 갯수
+      let $percent = Math.floor($finish / $total * 100); // 진척률
+
+      $(this).find('.page_total').text($total);
+      $(this).find('.page_finish').text($finish);
+      $(this).find('.page_percent').text(`${$percent} %`);
+    }); 
+
+    /* 컴포넌트 메뉴로 scrollTo 이동 */
+
+  </script> 
+</body>
+
+</html>

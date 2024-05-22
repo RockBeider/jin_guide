@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로젝트</title>
+  <link rel="stylesheet" href="/dist/assets/css/pc.css">  
+  <script src="/dist/assets/js/lib/juqery-3.7.0.min.js"></script> 
+  <script src="/dist/assets/js/common.js"></script> 
+</head>
+<body>
+  <div class="wrap">
+    <header class="main">
+        HEADER
+    </header>
+    <main class="container">
+      <p>CONTAINER</p>
+      <button type="button" class="btn open_layer" aria-controls="layerSm">레이어 띄우기 class type </button>
+    </main>
+    <footer>
+        FOOTER
+    </footer>
+  </div>
+  <!-- **************** -->
+  <!-- layer : start    -->
+  <!-- **************** -->
+  <div class="layer_wrap modal" id="layerSm" role="dialog" aria-modal="true" > <!-- 'modal' class 추가하면 dimm 영역 클릭해도 레이어 닫히지 않음 -->
+    <div class="layer_body wid720">
+      <div class="layer_head">
+        <h3>팝업타이틀</h3>
+        <p>서브 텍스트</p>
+        <button type="button" class="layer_close" popup-close="sampleLayer" aria-label="레이어 닫기"></button>
+      </div>
+      <div class="layer_cont">
+        팝업 컨텐츠
+      </div>
+      <div class="layer_foot">
+        <button type="button" class="btn">취소</button>
+        <button type="button" class="btn">확인</button>
+      </div>
+    </div>
+    <div class="layer_dimm"></div>  
+  </div>
+  <!-- **************** -->
+  <!-- layer : end      -->
+  <!-- **************** --> 
+</body>
+</html>
