@@ -90,16 +90,15 @@
               <p class="tit">Swiper</p>
               <div class="cont">
                 <!-- swiper -->
+                <!-- progressbar , slide 4개 -->
                 <div class="tit_wrap between_center">
-                  <h2 class="tit_lv2">SWIPER PROGRESS</h2>
-                  <div class="pagination type_arrow">
+                  <h2 class="tit_lv2">SWIPER_PROGRESS</h2>
+                  <div class="pagination type_arrow" id="swiperProgress">
                     <a href="#none" class="swiper-button-prev">앞으로</a>
                     <a href="#none" class="swiper-button-next">뒤로</a>
                   </div>
                 </div>
-
-                <!-- progressbar , slide 4개 -->
-                <div class="swiper swiper_progress">
+                <div class="swiper swiper_progress" data-swiper="swiperProgress">
                   <ul class="swiper-wrapper">
                     <li class="swiper-slide">
                       <a href="#none" class="product_item">
@@ -183,90 +182,75 @@
                   <div class="swiper-pagination"></div>
                 </div>
                 <script>
-                  var swiper_progress = new Swiper(".swiper_progress", {
+                  var swiper_progress = new Swiper('[data-swiper="swiperProgress"]', {
                     slidesPerView: 4,
                     spaceBetween: 10,
                     threshold: 0,
                     slidesPerGroup: 4,
                     ally: false,
                     pagination: {
-                      el: ".swiper_progress .swiper-pagination",
-                      type: "progressbar",
+                      el: '[data-swiper="swiperProgress"] > .swiper-pagination',
+                      type: 'progressbar',
                     },
                     navigation: {
-                      nextEl: ".pagination.type_arrow > .swiper-button-next",
-                      prevEl: ".pagination.type_arrow > .swiper-button-prev",
+                      nextEl: '#swiperProgress .swiper-button-next',
+                      prevEl: '#swiperProgress .swiper-button-prev',
                     },
                   });
                 </script>
                 <!--// progressbar , slide 4개 -->
 
-
+                 
+                <!-- progressbar , slide 3개 , hover 좌우버튼 -->
                 <div class="tit_wrap between_center">
-                  <h2 class="tit_lv2">SWIPER PROGRESS WITH BTNS</h2>
-                  <div class="pagination type_arrow">
+                  <h2 class="tit_lv2">SWIPER_PROGRESS_BTNS</h2>
+                  <div class="pagination type_arrow" id="swiperProgressBtns">
                     <a href="#none" class="swiper-button-prev">앞으로</a>
                     <a href="#none" class="swiper-button-next">뒤로</a>
                   </div>
                 </div>
-
-                <!-- progressbar , slide 3개 , hover 좌우버튼 -->
-                <div class="swiper swiper_progress has_btn">		
+                <div class="swiper swiper_progress" data-swiper="swiperProgressBtns">		
                   <ul class="swiper-wrapper">
                     <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
+                      <a href="#none" class="thumb_area">
+                        <div class="thumb">
                           <img src="../../assets/img/temp/brand_300x375.png" alt="">
-                        </span>
+                        </div>
                       </a>
                     </li>
                     <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
+                      <a href="#none" class="thumb_area">
+                        <div class="thumb">
                           <img src="../../assets/img/temp/brand_300x375_2.png" alt="">
-                        </span>
+                        </div>
                       </a>
                     </li>
                     <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
+                      <a href="#none" class="thumb_area">
+                        <div class="thumb">
                           <img src="../../assets/img/temp/brand_300x375_3.png" alt="">
-                        </span>
+                        </div>
                       </a>
                     </li>
                     <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
+                      <a href="#none" class="thumb_area">
+                        <div class="thumb">
                           <img src="../../assets/img/temp/brand_300x375_4.png" alt="">
-                        </span>
+                        </div>
                       </a>
                     </li>
                     <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
+                      <a href="#none" class="thumb_area">
+                        <div class="thumb">
                           <img src="../../assets/img/temp/brand_300x375_2.png" alt="">
-                        </span>
+                        </div>
                       </a>
                     </li>
                     <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
+                      <a href="#none" class="thumb_area">
+                        <div class="thumb">
                           <img src="../../assets/img/temp/brand_300x375_3.png" alt="">
-                        </span>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
-                          <img src="../../assets/img/temp/brand_300x375_4.png" alt="">
-                        </span>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none">
-                        <span class="thumb">
-                          <img src="../../assets/img/temp/brand_300x375_2.png" alt="">
-                        </span>
+                        </div>
                       </a>
                     </li>
                   </ul>
@@ -278,24 +262,236 @@
                 </div>
 
                 <script>
-                    var swiper_progress_btn = new Swiper(".swiper_progress.has_btn", {
+                  var swiper_progress_btn = new Swiper('[data-swiper="swiperProgressBtns"]', {
                     slidesPerView: 3,
-                    spaceBetween: 4,
-                    nested: true,
+                    spaceBetween: 0,
+                    threshold: 0,
+                    slidesPerGroup: 3,
                     ally: false,
+                    // // nested: true,
                     pagination: {
-                      el: ".swiper_progress.has_btn > .swiper-pagination",
-                      type: "progressbar",
+                      el: '[data-swiper="swiperProgressBtns"] > .swiper-pagination',
+                      type: 'progressbar',
                     },
-
                     navigation: {
-                      nextEl: ".swiper_progress.has_btn .swiper-button-next",
-                      prevEl: ".swiper_progress.has_btn .swiper-button-prev",
+                      nextEl: '#swiperProgressBtns .swiper-button-next',
+                      prevEl: '#swiperProgressBtns .swiper-button-prev',
                     },
                   });
                 </script>
-
                 <!--// progressbar , slide 3개 , hover 좌우버튼 -->
+
+
+                <!-- slide 3개 , 이너 슬라이드 -->
+                <div class="tit_wrap between_center">
+                  <h2 class="tit_lv2">SWIPER_INNER</h2>
+                  <div class="pagination type_arrow" id="swiperParent">
+                    <a href="#none" class="swiper-button-prev">앞으로</a>
+                    <a href="#none" class="swiper-button-next">뒤로</a>
+                  </div>
+                </div>
+                <div class="swiper swiper_shadow" data-swiper="swiperParent">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="swiper swiper_inner" data-swiper="swiperInner">
+                        <ul class="swiper-wrapper">
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div> 
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100_1.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                        </ul>
+                        <div class="swiper_arrow_wrap">
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                      <a href="#none" class="thumb_area">
+                        <span class="thumb"><img src="../../assets/img/temp/pick_img01.png" alt=""></span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="swiper swiper_inner" data-swiper="swiperInner">
+                        <ul class="swiper-wrapper">
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100_2.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                        </ul>
+                        <div class="swiper_arrow_wrap">
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                      <a href="#none" class="thumb_area">
+                        <span class="thumb"><img src="../../assets/img/temp/pick_img02.png" alt=""></span>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="swiper swiper_inner" data-swiper="swiperInner">
+                        <ul class="swiper-wrapper">
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100_1.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100_2.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                        </ul>
+                        <div class="swiper_arrow_wrap">
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                      <a href="#none">
+                        <div class="thumb_area">
+                          <span class="thumb"><img src="../../assets/img/temp/pick_img03.png" alt=""></span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="swiper swiper_inner" data-swiper="swiperInner">
+                        <ul class="swiper-wrapper">
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100_1.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                          <li class="swiper-slide">
+                            <a href="#none" class="thumb_area"><span class="thumb"><img src="../../assets/img/temp/lookbook_100x100_2.png" alt=""></span></a>
+                            <div class="info_area contents">
+                              <span class="cont_tit"><a href="#none">20SS Women Volume Shirt (Black)</a></span>
+                              <span class="cont_subtit"><a href="#none">139,000<em>99,000</em></a></span>
+                            </div>
+                          </li>
+                        </ul>
+                        <div class="swiper_arrow_wrap">
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                      <a href="#none" class="thumb_area">
+                        <span class="thumb"><img src="../../assets/img/temp/pick_img03.png" alt=""></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!--// slide 3개 , 이너 슬라이드 -->
+
+                <script>
+                  var swiper_progress_btn = new Swiper('[data-swiper="swiperParent"]', {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                    threshold: 0,
+                    slidesPerGroup: 3,
+                    ally: false,
+                    // // nested: true,
+                    pagination: {
+                      el: '[data-swiper="swiperParent"] > .swiper-pagination',
+                      type: 'progressbar',
+                    },
+                    navigation: {
+                      nextEl: '#swiperParent .swiper-button-next',
+                      prevEl: '#swiperParent .swiper-button-prev',
+                    },
+                  });
+
+
+                  $('[data-swiper="swiperInner"]').each(function (index) {
+                    let _this = $(this);
+                    let swiperInner = undefined;
+                    let slideInx = 0; //현재 슬라이드 index
+                    // console.log('index',index)
+
+                    sliderAct()
+
+                    function sliderAct() {
+                      _this.data('swiper', 'swiperInner1'+ index);
+                      console.log('_this',_this.attr('data-swiper', 'swiperInner'+ index))
+                      if (swiperInner != undefined) { //슬라이드 초기화
+                        swiperInner.destroy();
+                        swiperInner = undefined;
+                        return;
+                      }
+
+                      swiperInner = new Swiper('[data-swiper="swiperInner'+ index +'"]', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 10,
+                        threshold: 0,
+                        ally: false,
+                        // freeMode: false,
+                        nested: true,
+                        navigation: {
+                          nextEl: '[data-swiper="swiperInner'+ index +'"] .swiper-button-next',
+                          prevEl: '[data-swiper="swiperInner'+ index +'"] .swiper-button-prev',
+                        },
+                        on: {
+                          activeIndexChange: function () {
+                            slideInx = this.realIndex; //현재 슬라이드 index 갱신
+                          },
+                        },
+                        watchOverflow: true
+                      });
+                    }
+                  });
+                </script>
+
 
               </div>
             </div>
@@ -378,119 +574,7 @@
             <div class="category">
               <p class="tit">Swiper</p>
               <div class="cont">
-                <!-- swiper -->
-                <div class="tit_wrap between_center">
-                  <h2 class="tit_lv2">PRODUCT PICK</h2>
-                  <div class="pagination type_arrow">
-                    <a href="#none" class="swiper-button-prev">앞으로</a>
-                    <a href="#none" class="swiper-button-next">뒤로</a>
-                  </div>
-                </div>
-
-                <!--리스트 4개출력 swiper-->
-                <div class="swiper swiper_progress">
-                  <ul class="swiper-wrapper">
-                    <li class="swiper-slide">
-                      <a href="#none" class="product_item">
-                        <div class="thumb_area">
-                          <div class="thumb">
-                            <img src="../../assets/img/temp/pick_img01.png" alt="" />
-                          </div>
-                        </div>
-                        <div class="info_area">
-                          <p class="tit">ACNE STUDIO</p>
-                          <span class="sub">아크네스튜디오</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none" class="product_item">
-                        <div class="thumb_area">
-                          <div class="thumb">
-                            <img src="../../assets/img/temp/pick_img02.png" alt="" />
-                          </div>
-                        </div>
-                        <div class="info_area">
-                          <p class="tit">GOOD MORNING GENERAL STORE</p>
-                          <span class="sub">굿모닝제너럴스토어</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none" class="product_item">
-                        <div class="thumb_area">
-                          <div class="thumb">
-                            <img src="../../assets/img/temp/pick_img03.png" alt="" />
-                          </div>
-                        </div>
-                        <div class="info_area">
-                          <p class="tit">SALTANDCHOCOLATE</p>
-                          <span class="sub">솔트앤초콜릿</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none" class="product_item">
-                        <div class="thumb_area">
-                          <div class="thumb">
-                            <img src="../../assets/img/temp/pick_img04.png" alt="" />
-                          </div>
-                        </div>
-                        <div class="info_area">
-                          <p class="tit">GOOD MORNING GENERAL STORE</p>
-                          <span class="sub">굿모닝제너럴스토어</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none" class="product_item">
-                        <div class="thumb_area">
-                          <div class="thumb">
-                            <img src="../../assets/img/temp/pick_img04.png" alt="" />
-                          </div>
-                        </div>
-                        <div class="info_area">
-                          <p class="tit">ACNE STUDIO</p>
-                          <span class="sub">아크네스튜디오</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="swiper-slide">
-                      <a href="#none" class="product_item">
-                        <div class="thumb_area">
-                          <div class="thumb">
-                            <img src="../../assets/img/temp/pick_img03.png" alt="" />
-                          </div>
-                        </div>
-                        <div class="info_area">
-                          <p class="tit">ACNE STUDIO</p>
-                          <span class="sub">굿모닝제너럴스토어</span>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                  <div class="swiper-pagination"></div>
-                </div>
-                <!--//리스트 4개출력 swiper-->
-                <script>
-                  //프로그래스
-                  var swiper_progress = new Swiper(".swiper_progress", {
-                    slidesPerView: 4,
-                    spaceBetween: 10,
-                    threshold: 0,
-                    slidesPerGroup: 4,
-                    ally: false,
-                    pagination: {
-                      el: ".swiper_progress .swiper-pagination",
-                      type: "progressbar",
-                    },
-                    navigation: {
-                      nextEl: ".pagination.type_arrow > .swiper-button-next",
-                      prevEl: ".pagination.type_arrow > .swiper-button-prev",
-                    },
-                  });
-                </script>
-
+                
               </div>
             </div>
 

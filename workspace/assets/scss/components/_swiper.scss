@@ -35,10 +35,34 @@
 }
 
 /** swiper progress **/
-.swiper_progress {
+.swiper {
   width: 100%;
-  .swiper-wrapper {
-    margin-bottom: 30px;
+  &.swiper_shadow {
+    > .swiper-wrapper > .swiper-slide::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.9) 74%);
+      opacity: 0.3;
+      z-index: 5;
+    }
+    .swiper_inner { 
+      position: absolute; 
+      bottom: 20px; 
+      left: 0px; 
+      height: 100px; 
+      padding: 0 20px;
+      overflow: hidden; 
+      z-index: 10; 
+      .swiper-slide { width: 100px; height: 100px;}
+      .thumb_area { width: 100px; height: 100px; padding: 0; background: rgba(#fff, 0.5) }
+    }
+  } 
+  &.swiper_progress {
+    > .swiper-wrapper { margin-bottom: 30px; }
   }
   .swiper-pagination { 
     top: unset;
@@ -49,59 +73,63 @@
     background: #000; 
     height: 2px; 
   }
-  &.has_btn {
-    .swiper_arrow_wrap { opacity: 0; transition: 0.4s ease; }
-    &:hover .swiper_arrow_wrap { 
-      opacity: 1;
-    }
-    .swiper-button-next, 
-    .swiper-button-prev { 
+  // 좌우 버튼 : hover 시 보임
+  .swiper_arrow_wrap { opacity: 0; transition: 0.4s ease; }
+  &:hover .swiper_arrow_wrap { 
+    opacity: 1;
+  }
+  .swiper-button-next, 
+  .swiper-button-prev { 
+    width: 20px; 
+    height: 20px; 
+    margin-top: -10px;
+    &.swiper-button-disabled {opacity: 0 }
+    &:after { 
+      display: inline-flex; 
+      background: rgba(#000, 0.5) url('../../assets/img/ico_arrow_right_20.png') no-repeat center; 
+      font-size: 0; 
       width: 20px; 
-      height: 20px; 
-      margin-top: -10px;
-      &.swiper-button-disabled, 
-      &.swiper-button-disabled {opacity: 0 }
-      &:after, 
-      &:after { 
-        display: inline-flex; 
-        background: rgba(#000, 0.5) url('../../assets/img/ico_arrow_right_20.png') no-repeat center; 
-        font-size: 0; 
-        width: 20px; 
-        height: 30px; 
-        opacity: 1
-      }
+      height: 30px; 
+      opacity: 1
     }
-    .swiper-button-next{ right: 0 } 
-    .swiper-button-prev{ left: 0; 
-      &:after{
-        transform: rotate(-180deg);
-      }}
+  }
+  .swiper-button-next{ right: 0 } 
+  .swiper-button-prev{ left: 0; 
+    &:after{
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+
+
+// 상품 이미지 공통
+.thumb_area {
+  display: block;
+  position: relative;
+  padding-bottom: 133%;
+  overflow: hidden;
+  z-index: 1;
+  background: url('../../assets/img/common/no_thum.png') no-repeat 50% 50%;
+  background-size: cover;
+  .thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 
 .product_item {
   display: block;
   position: relative;
-  .thumb_area {
-    position: relative;
-    padding-bottom: 133%;
-    overflow: hidden;
-    z-index: 1;
-    background: url('../../assets/img/common/no_thum.png') no-repeat 50% 50%;
-    background-size: cover;
-    .thumb {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
+  
   .info_area {
     margin-top: 12px;
     padding-right: 20px;
@@ -114,3 +142,36 @@
     }
   }
 }
+
+.product_list_look ul{ margin-bottom:20px}
+.product_list_look ul li{overflow: hidden; position:relative; }
+.product_list_look ul li:not(.product_sub_list li){width: calc((100% - 20px) / 3) }
+.product_list_look ul li .thumb_area{ margin-bottom:0; padding-bottom:150.6%}
+.product_list_look ul li .thumb_area span.thumb em.titTxt  {position:absolute; padding:30px 0 0 30px; color:#fff; font-size:28px; line-height:36px;  }
+/*.product_list_look ul li .shadow{width:100%; height:230px; bac.thumb em.titTxtkgrposition:absolute; padding:30px 0 0 30px; color:#fff; font-size:28px; line-height:36px;  ound: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 74%); position:absolute; bottom:0; left:0; z-index:10; opacity: 0.3;}*/
+
+.product_list_look ul li:not(.swiper_nest li):after{content:"";width:100%; height:300px; background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 74%); position:absolute; bottom:0; left:0; z-index:5; opacity: 0.3;}
+
+.product_sub_list{ width:calc(100% - 10px) ; height:100%; margin-top:0; margin-left:10px; overflow:hidden;}
+.product_sub_list .list_inner{ font-size:0; margin:0 auto; }
+.product_sub_list *{ color:var(--txt-color-white)}
+.product_sub_list li.swiper-slide{ width:300px !important; height:100%; display:flex; justify-content: flex-start; align-items: flex-start;}
+.product_sub_list li .thumb{ background:none; }
+.product_sub_list li .thumb img{ width:auto; height:100%;}
+.product_sub_list li .info_area{ margin:0; padding:16px 0 0 0; width:calc(100% - 120px); display:flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; margin-left:20px}
+.product_sub_list li .info_area .cont_tit{ font-size:14px; font-weight:400; line-height:1.57; height:38px}
+.product_sub_list li .info_area .cont_subtit{ margin-top:10px}
+.product_sub_list li .info_area .cont_subtit a{ font-size:16px; font-weight:700; line-height:1.5; }
+.product_sub_list li .info_area .cont_subtit a em{ font-weight:500; font-size:14px; color:var(--txt-color-gray02); text-decoration: line-through; margin-left:9px; line-height:1.57}
+
+.swiper_nest .swiper_arrow_wrap{ opacity: 1; transition: 0.4s ease; }
+.swiper_nest .swiper-button-next:after, 
+.swiper_nest .swiper-button-prev:after{ background:url("../../images/uiux/icon/ico_lookbook_arrow.png") no-repeat center; font-size:0; width:20px; height:20px; display:inline-flex; opacity:1}
+.swiper_nest .swiper-button-prev:after{transform: rotate(-180deg);}
+.swiper_nest .swiper-button-next, 
+.swiper_nest .swiper-button-prev{ width:20px ; height:20px; margin-top:-10px;}
+.swiper_nest .swiper-button-next{right:20px} 
+.swiper_nest .swiper-button-prev{left:0}
+.swiper_nest .swiper-button-next.swiper-button-disabled, 
+.swiper_nest .swiper-button-prev.swiper-button-disabled{opacity:.3}
+
