@@ -90,6 +90,77 @@
               <p class="tit">Swiper</p>
               <div class="cont">
                 <!-- swiper -->
+
+                <div class="tit_wrap between_center">
+                  <h2 class="tit_lv2">SWIPER_BANNER</h2>
+                  <!-- <div class="pagination type_arrow" id="swiperPause">
+                    <a href="#none" class="swiper-button-prev">앞으로</a>
+                    <a href="#none" class="swiper-button-next">뒤로</a>
+                  </div> -->
+                </div>
+
+                <div class="swiper swiper_banner" data-swiper="swiperPause">	 	
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="bnr_area"><img src="../../assets/img/temp/prod_bnr1.jpg" alt=""></div>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="bnr_area"><img src="../../assets/img/temp/prod_bnr2.jpg" alt=""></div>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="bnr_area"><img src="../../assets/img/temp/prod_bnr3.jpg" alt=""></div>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="bnr_area"><img src="../../assets/img/temp/prod_bnr4.jpg" alt=""></div>
+                    </li>
+                  </ul>
+                  <div class="swiper_support">
+                    <div class="bullet_wrap">
+                        <button type="button" class="play"><span class="blind">play</span></button>
+                        <button type="button" class="pause"><span class="blind">pause</span></button>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="swiper_arrow_wrap">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <script>
+                  var swiperPause = new Swiper('[data-swiper="swiperPause"]', {
+                    effect: 'fade',
+                    autoplay: {
+                      delay: 2000,
+                    },
+                    // loop: true,
+                    pagination: {
+                      el: '[data-swiper="swiperPause"] .swiper-pagination',
+                      clickable: true,
+                    },
+                    navigation: {
+                      nextEl: '[data-swiper="swiperPause"] .swiper-button-next',
+                      prevEl: '[data-swiper="swiperPause"] .swiper-button-prev',
+                    },
+                    on: {
+                      init: function () {
+                        $('.swiper_banner .play').css({ 'display': 'none' });
+                        $('.swiper_banner .play').on('click', function () {
+                          prdSubBanner.autoplay.start();
+                          $('.swiper_banner .pause').css({ 'display': 'inline-block' });
+                          $('.swiper_banner .play').css({ 'display': 'none' });
+                        });
+                        $('.swiper_banner .pause').on('click', function () {
+                          prdSubBanner.autoplay.stop();
+                          $('.swiper_banner .pause').css({ 'display': 'none' });
+                          $('.swiper_banner .play').css({ 'display': 'inline-block' });
+                        });
+                      },
+                    },
+                  });
+                </script>
+
                 <!-- progressbar , slide 4개 -->
                 <div class="tit_wrap between_center">
                   <h2 class="tit_lv2">SWIPER_PROGRESS</h2>
@@ -182,7 +253,7 @@
                   <div class="swiper-pagination"></div>
                 </div>
                 <script>
-                  var swiper_progress = new Swiper('[data-swiper="swiperProgress"]', {
+                  var swiperProgress = new Swiper('[data-swiper="swiperProgress"]', {
                     slidesPerView: 4,
                     spaceBetween: 10,
                     threshold: 0,
@@ -262,7 +333,7 @@
                 </div>
 
                 <script>
-                  var swiper_progress_btn = new Swiper('[data-swiper="swiperProgressBtns"]', {
+                  var swiperProgressBtns = new Swiper('[data-swiper="swiperProgressBtns"]', {
                     slidesPerView: 3,
                     spaceBetween: 0,
                     threshold: 0,
@@ -435,7 +506,7 @@
                 <!--// slide 3개 , 이너 슬라이드 -->
 
                 <script>
-                  var swiper_progress_btn = new Swiper('[data-swiper="swiperParent"]', {
+                  var swiperShadow = new Swiper('[data-swiper="swiperParent"]', {
                     slidesPerView: 3,
                     spaceBetween: 10,
                     threshold: 0,
@@ -452,12 +523,10 @@
                     },
                   });
 
-
                   $('[data-swiper="swiperInner"]').each(function (index) {
-                    let _this = $(this);
-                    let swiperInner = undefined;
-                    let slideInx = 0; //현재 슬라이드 index
-                    // console.log('index',index)
+                    var _this = $(this);
+                    var swiperInner = undefined;
+                    var slideInx = 0; //현재 슬라이드 index
 
                     sliderAct()
 
@@ -469,7 +538,6 @@
                         swiperInner = undefined;
                         return;
                       }
-
                       swiperInner = new Swiper('[data-swiper="swiperInner'+ index +'"]', {
                         slidesPerView: 'auto',
                         spaceBetween: 10,
@@ -486,12 +554,11 @@
                             slideInx = this.realIndex; //현재 슬라이드 index 갱신
                           },
                         },
-                        watchOverflow: true
+                        // watchOverflow: true
                       });
                     }
                   });
                 </script>
-
 
               </div>
             </div>
