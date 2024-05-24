@@ -1,0 +1,77 @@
+// 상품 이미지 공통
+.thumb {
+  display: block;
+  position: relative;
+  padding-bottom: 133%;
+  background: url($path+'/common/no_thum.png') no-repeat 50% 50% / cover;
+  img {
+    position: absolute;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+.product_list { 
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  &.list_2 li { width: calc(50% - 5px); } 
+
+}
+.product_item {
+  display: block;
+  position: relative;
+  .thumb_area {
+    position: relative;
+    .badge_wrap { 
+      display: flex; 
+      position: absolute; 
+      z-index: 1; 
+      left: 0; 
+      bottom: 0;}
+  }
+  .info_area {
+    margin-top: 12px;
+    padding-right: 20px;
+    .tit {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .sub {
+      font-size: 14px;
+    }
+  }
+}
+  
+  // .product_info a.link_wrap {display: block; position: relative; z-index: 0;}
+  // .button_equal {position: absolute; z-index: 10; top: 6px; right: 6px; width: 20px; height: 20px; border: none; text-indent: -9999em; }
+  
+  // .thumb_area {position: relative; width: 100%; padding-bottom: 133%; margin: 0 auto; overflow: hidden; background-color:var(--bg-color-gray02); background-image:url('../image/common/no_thum.png'); background-repeat:no-repeat; background-position: 50% 50%; background-size:100% auto; background-color:var(--bg-color-gray02)}
+  // .thumb_area .go_more{ position:absolute;top:50%; left:0; transform:translateY(-50%)}
+  // .thumb_area .thumb {position: absolute; top: 0%; left: 0%; width: 100%; height: 100%;}
+  // .thumb_area .thumb img {width: 100%; height: 100%; object-fit: cover;}
+  
+  // .thumb_area .thumb {position: absolute; top: 0%; left: 0%; width: 100%; height: 100%;}
+  // .thumb_area .thumb img {width: 100%; height: 100%; object-fit: cover;}
+  // .thumb_area .badge_wrap {display: flex; position: absolute; z-index: 1; left: 0; bottom: 0;}
+  // .thumb_area .badge_wrap .badge.rank {min-width: 25px; text-align: center;}
+  // .thumb_area .badge_wrap .badge.soldout {color: var(--txt-color-white); background-color: var(--bg-color-gray03);}
+  // .thumb_area .badge_wrap .badge.badge_event {background-color: var(--bg-color-point);}
+  
+//   .event_end {position:absolute; top:0; left:0; z-index:2; background:var(--bg-color-black02); width:100%; height:100%; display:flex; justify-content: center; align-items: center; color:var(--txt-color-white); font-size:16px; font-weight:700; letter-spacing:-0.48px}
+  
+//   .info_area {display: flex; flex-direction: column; margin-top: 20px;}
+//   .info_area .brand {overflow: hidden; font-size: 14px;  color: var(--txt-color); text-overflow: ellipsis; white-space: nowrap; padding-right:40px}
+//   .info_area .product {overflow: hidden; display: -webkit-box; margin-top: 5px;  font-size: 12px; color: var(--txt-color-gray03); font-weight:400; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; line-height:1.33; padding-right:20px}
+  
+//   .favorite_wrap {display: flex; flex-wrap: wrap; align-items: center;}
+//   .favorite_wrap .button_toggle,
+//   .favorite_wrap .button_review {height: 18px; padding: 0 10px 0 22px; border: none; font-size: 12px;  color: var(--txt-color-gray); line-height: 18px; background-repeat: no-repeat; background-position: 0 center; background-size:18px 18px;}
+//   .favorite_wrap .button_toggle.equal {background-image:url('../image/icon/ico_pro_equal_s.png');}
+//   .favorite_wrap .button_toggle.equal.is_active {background-image:url('../image/icon/ico_pro_equal_s_on.png');}
+//   .favorite_wrap .button_review {background-image:url('../image/icon/ico_review.png');}
+//   .favorite_wrap .button_review span + span {margin-left: 2px;}
+// }
+

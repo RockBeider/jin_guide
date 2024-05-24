@@ -1,0 +1,108 @@
+<!-- connectedSwiper , slide 4개 -->
+<div class="tit_wrap between_center">
+  <h2 class="tit_lv2">SWIPER_CONNECTED</h2>
+  <div class="pagination type_arrow" id="swiperConnected">
+    <a href="#none" class="swiper-button-prev">앞으로</a>
+    <a href="#none" class="swiper-button-next">뒤로</a>
+  </div>
+</div>
+<div class="swiper swiper_connect" data-swiper="swiperConnected">
+  <ul class="swiper-wrapper">
+    <li class="swiper-slide">
+      <a href="#none" class="product_item">
+        <div class="thumb">
+          <img src="../../assets/img/temp/pick_img01.png" alt="" />
+        </div>
+      </a>
+    </li> 
+    <li class="swiper-slide">
+      <a href="#none" class="product_item">
+        <div class="thumb">
+          <img src="../../assets/img/temp/pick_img02.png" alt="" />
+        </div>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="#none" class="product_item">
+        <div class="thumb">
+          <img src="../../assets/img/temp/pick_img03.png" alt="" />
+        </div>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="#none" class="product_item">
+        <div class="thumb">
+          <img src="../../assets/img/temp/pick_img04.png" alt="" />
+        </div>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="#none" class="product_item">
+        <div class="thumb">
+          <img src="../../assets/img/temp/pick_img04.png" alt="" />
+        </div>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="#none" class="product_item">
+        <div class="thumb">
+          <img src="../../assets/img/temp/pick_img03.png" alt="" />
+        </div>
+      </a>
+    </li>
+  </ul>
+  <div class="badge_group">
+    <div class="badge_set">	
+      <div class="badge_item"><div class="badge_big"><span class="text_area">EXCLUSIVEEXCLUSIVE1</span><span class="count">1/6</span></div></div>										
+      <div class="badge_item"><div class="badge_big"><span class="track"><span class="text_flow">SOFT BAG1.0 SOFT BAG1.0 SOFT BAG1.0 SOFT BAG1.0 SOFT BAG1.0</span></span></div></div>			
+    </div>
+    <div class="badge_set">
+      <div class="badge_item"><div class="badge_big"><span class="text_area">EXCLUSIVE2</span><span class="count">2/6</span></div></div>													
+      <div class="badge_item"><div class="badge_big"><span class="track no_animation"><span class="text_flow">SOFT BAG2.0</span></span></div></div>						
+    </div>
+    <div class="badge_set">
+      <div class="badge_item"><div class="badge_big"><span class="text_area">NEW BRAND3</span><span class="count">3/6</span></div></div>													
+      <div class="badge_item"><div class="badge_big"><span class="track no_animation"><span class="text_flow">SOFT BAG3.0</span></span></div></div>						
+    </div>
+    <div class="badge_set">
+      <div class="badge_item"><div class="badge_big"><span class="text_area">NEW BRAND4</span><span class="count">4/6</span></div></div>													
+      <div class="badge_item"><div class="badge_big"><span class="track no_animation"><span class="text_flow">SOFT BAG4.0</span></span></div></div>						
+    </div>
+    <div class="badge_set">
+      <div class="badge_item"><div class="badge_big"><span class="text_area">NEW BRAND5</span><span class="count">5/6</span></div></div>											
+      <div class="badge_item"><div class="badge_big"><span class="track no_animation"><span class="text_flow">SOFT BAG5.0</span></span></div></div>						
+    </div>
+    <div class="badge_set">
+      <div class="badge_item"><div class="badge_big"><span class="text_area">NEW BRAND6</span><span class="count">6/6</span></div></div>											
+      <div class="badge_item"><div class="badge_big"><span class="track no_animation"><span class="text_flow">SOFT BAG6.0</span></span></div></div>						
+    </div>
+  </div>
+</div>
+<script>
+  $('[data-swiper="swiperConnected"]').each(function(){
+    
+    var badgeSlide = $('.badge_group > .badge_set')
+    var swiperConnected= new Swiper('[data-swiper="swiperConnected"]', {
+      slidesPerView: 1,
+      spaceBetween: 0, 
+      threshold: 0,	
+      loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   clickable: true,
+      //   disableOnInteraction: false,
+      // },
+      navigation: {
+      nextEl: '#swiperConnected .swiper-button-next',
+      prevEl: '#swiperConnected .swiper-button-prev',
+    },
+      on: {
+        slideChange: function () {
+          badgeSlide.hide().eq(this.realIndex % badgeSlide.length).show()
+        },
+      },
+    });
+	})
+</script>
+<!--// progressbar , slide 4개 -->
+
