@@ -1,8 +1,5 @@
 $path : '../../assets/img';
 
-.pc_type {}
-.mobile_type {}
-
 .tit {
   &_lv1 {}
   &_lv2 { font-size: 28px; }
@@ -36,38 +33,9 @@ $path : '../../assets/img';
   }
 }
 
-/**  swiper - 상품 목록  **/
-.swiper {
+/**  swiper - 공통  **/
+.swiper { 
   width: 100%;
-  &.swiper_banner {
-  }
-  &.swiper_shadow {
-    > .swiper-wrapper > .swiper-slide::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.9) 74%);
-      opacity: 0.3;
-      z-index: 5;
-    }
-    .swiper_inner { 
-      position: absolute; 
-      bottom: 20px; 
-      left: 0px; 
-      height: 100px; 
-      padding: 0 20px;
-      overflow: hidden; 
-      z-index: 10; 
-      .swiper-slide { width: 100px; height: 100px;}
-      .thumb { width: 100px; height: 100px; padding: 0; background: rgba(#fff, 0.5) }
-    }
-  } 
-  &.swiper_progress {
-    > .swiper-wrapper { margin-bottom: 30px; }
-  }
   .swiper-pagination { 
     top: unset;
     bottom: 0;
@@ -105,18 +73,43 @@ $path : '../../assets/img';
   }
 }
 
-/** swiper 배너 **/
+/**  swiper - 상품목록  **/
 .swiper {
-  &.swiper_connect {
+  &.swiper_shadow {
+    > .swiper-wrapper > .swiper-slide::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.9) 74%);
+      opacity: 0.3;
+      z-index: 5;
+    }
+    .swiper_inner { 
+      position: absolute; 
+      bottom: 20px; 
+      left: 0px; 
+      height: 100px; 
+      padding: 0 20px;
+      overflow: hidden; 
+      z-index: 10; 
+      .swiper-slide { width: 100px; height: 100px;}
+      .thumb { width: 100px; height: 100px; padding: 0; background: rgba(#fff, 0.5) }
+    }
+  } 
+  &.swiper_progress {
+    > .swiper-wrapper { margin-bottom: 30px; }
+  }
+  &.swiper_connect { 
     padding-top: 20px; 
     .info_area { 
       position: absolute; top: 0; left: 0;
       color: #000;
       font-size: 14px;
     }
-    .thumb {
-      padding-bottom: 110%;
-    }
+    .thumb { padding-bottom: 110%; }
     .badge_group {
       position: absolute;
       top: 0px; 
@@ -166,21 +159,11 @@ $path : '../../assets/img';
             height: 100%;
             z-index: 3;
           }
-          &::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))
-          }
-          &::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))
-          }
+          &::before { left: 0; background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))}
+          &::after { right: 0;  background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))}
           &.no_animation {
-            &:before, &:after {
-              display: none
-            }
-            .text_flow {
-              animation: unset
-            }
+            &:before, &:after { display: none  }
+            .text_flow { animation: unset }
           }
           .text_flow {
             animation: text_flow 20s linear infinite;
@@ -192,6 +175,10 @@ $path : '../../assets/img';
       }
     }
   }
+}
+
+/** swiper 배너 **/
+.swiper {
   &.swiper_banner {
     position: relative;
     .bnr_area {
@@ -221,12 +208,8 @@ $path : '../../assets/img';
       height: 12px;
       margin: 0 4px;
     }
-    .play {
-        background: url($path+'/ico_play.svg') no-repeat center center;
-    }
-    .pause {
-        background: url($path+'/ico_pause.svg') no-repeat center center;
-    }
+    .play { background: url($path+'/ico_play.svg') no-repeat center center; }
+    .pause { background: url($path+'/ico_pause.svg') no-repeat center center; }
     .swiper-pagination {
       .swiper-pagination-bullet {
         width: 10px;
@@ -241,7 +224,6 @@ $path : '../../assets/img';
     }
   }
 }
-
 
 /*animation*/
 @keyframes text_flow{

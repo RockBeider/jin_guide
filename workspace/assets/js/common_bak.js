@@ -189,16 +189,15 @@ $.btnScroll = function () {
   var scrollArr = []; // offset.top
   var scrollIdx = 0; // category index
 
-  // var tabBtns = $('.tab_menu .tab_btn');
-  var scrollBtns = $('.scroll_menu');
+  var tabBtns = $('.tab_menu .tab_btn');
+  var tabCont = $('.tab_wrap .tab_cont');
 
-  // if (!tabBtns.length) return false;
- 
+  if (!tabBtns.length) return false;
+
   function scrollInit() {
     getTop(scrollIdx); // category top 가져오기
-    console.log('getTop 실행!!')
     getScrollIdx(); // scroll index 가져오기 + btnChange(idx)
-    scrollBtns.each(function () { // disable 제외 버튼 클릭 시 scroll 이동
+    tabCont.each(function () { // disable 제외 버튼 클릭 시 scroll 이동
       this.btns = $('.btn:not(:disabled)', this);
       this.cont = $('.scroll_menu', this);
       this.btns.each(function (n) { 
@@ -214,15 +213,14 @@ $.btnScroll = function () {
 
   function getTop(set) {  
     scrollArr = [];
-    var scrollWrapTop = scrollWrap.offset().top; 
-    var category = $('.scroll_wrap .g_category');
-    // console.log('scrollWrapTop', scrollWrapTop) 
+    var scrollWrapTop = scrollWrap.eq(set).offset().top; 
+    var category = $('.category', scrollWrap[set]);
+    // console.log(scrollWrapTop) 
     category.each(function () {
-      var sum = Math.floor($(this).offset().top - scrollWrapTop + 10)
-      // console.log('sum', sum)
+      var sum = Math.floor($(this).offset().top - scrollWrapTop)
       scrollArr.push(sum)
     })
-    //  console.log('scrollArr',scrollArr)
+    //  console.log(scrollArr)
   }
 
   // console.log(scrollWrap.length)
@@ -246,7 +244,6 @@ $.btnScroll = function () {
   function goScroll(n) {
     scrollingChkStatus = false;
     scrollArea.stop().scrollTop( scrollArr[n] )
-    // console.log('scrollTop',  scrollArr[n])
     setTimeout(()=>{
       btnChange(n);
       scrollingChkStatus = true;
@@ -254,37 +251,37 @@ $.btnScroll = function () {
   }
 
   function btnChange(idx) {
-    var This = scrollBtns.find('.btn').eq(idx)
-    // console.log('scrollBtns.btns', scrollBtns.find('.btn'))
-    scrollBtns.find('.btn').removeClass('is_active')
+    var This = tabCont[scrollIdx].btns.removeClass('is_active').eq(idx)
     This.addClass('is_active')
-    // console.log('This',This[0])
+    console.log('This',This[0])
+    console.log('tabCont[scrollIdx]',tabCont[scrollIdx])
+    btnsToCenter(This[0])
   }
 
-  // function btnsToCenter(obj) { // 버튼 센터 이동
-  //   var wrap = $(obj);
-  //   var btnWrap = obj.parent
-  //   var myScrollPos = Math.floor(wrap.offset().left + wrap.outerWidth() / 2 + btnWrap.scrollLeft() - btnWrap.outerWidth() / 2) ;
-  //   btnWrap.stop().animate({ 'scrollLeft': myScrollPos })
-  //   console.log('wrap',wrap)
-  //   console.log('myScrollPos',myScrollPos)
-  // }
+  function btnsToCenter(obj) { // 버튼 센터 이동
+    var wrap = $(obj);
+    var btnWrap = obj.parent
+    var myScrollPos = Math.floor(wrap.offset().left + wrap.outerWidth() / 2 + btnWrap.scrollLeft() - btnWrap.outerWidth() / 2) ;
+    btnWrap.stop().animate({ 'scrollLeft': myScrollPos })
+    console.log('wrap',wrap)
+    console.log('myScrollPos',myScrollPos)
+  }
 
-  // function chnageTab(n) {
-  //   scrollWrap.hide().eq(n).show()
-  //   scrollWrap.removeClass('is_active').eq(n).addClass('is_active');
-  //   scrollArea.scrollTop(0)
-  //   getTop(n)
-  //   scrollIdx = n;
-  //   tabCont.each(function () {
-  //     this.btns.removeClass('is_active').eq(0).addClass('is_active')
-  //     this.cont.stop().scrollLeft(0)
-  //   })
-  // } 
-  // tabBtns.on('click',function () {
-  //   chnageTab($(this).index())
-  //   return;
-  // });
+  function chnageTab(n) {
+    scrollWrap.hide().eq(n).show()
+    scrollWrap.removeClass('is_active').eq(n).addClass('is_active');
+    scrollArea.scrollTop(0)
+    getTop(n)
+    scrollIdx = n;
+    tabCont.each(function () {
+      this.btns.removeClass('is_active').eq(0).addClass('is_active')
+      this.cont.stop().scrollLeft(0)
+    })
+  } 
+  tabBtns.on('click',function () {
+    chnageTab($(this).index())
+    return;
+  });
 }
 
 
@@ -588,88 +585,6 @@ $.tab = function () {
 };
 
 
-
-// Modal full popup
-function ModalFPOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.css({ 'z-index': '1100' });
-	dimmVisible();
-	_getTarget.addClass('');
-}
-function ModalFPClose(id) {
-	_getTarget.removeClass('');
-
-	// 남아있는 모달이 없는 경우 초기화
-	if ($('.modal_wrap.').length == 0) {
-		dimmHidden();
-	}
-}
-
-// Alert popup
-function ModalAlertOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.css({ 'z-index': '1300' });
-	dimmVisible();
-	_getTarget.addClass('is_show');
-}
-function ModalAlertClose(id) {
-	_getTarget.removeClass('is_show').one('transitionend', function () {
-		if (!_getTarget.hasClass('is_show')) {
-			_getTarget.removeClass('');
-
-			// 남아있는 모달이 없는 경우 초기화
-			if ($('.modal_wrap.').length == 0) {
-				dimmHidden();
-			}
-		}
-	})
-}
-
-// Dimmed popup
-function ModalOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.css({ 'z-index': '1300' });
-	dimmVisible();
-	_getTarget.addClass('is_show');
-
-	$('.dimmer').click(function (e){
-		_getTarget.removeClass('is_show').one('transitionend', function () {
-			if (!_getTarget.hasClass('is_show')) {
-				_getTarget.removeClass('');
-	
-				// 남아있는 모달이 없는 경우 초기화
-				if ($('.modal_wrap.').length == 0) {
-					dimmHidden();
-				}
-			}
-		})
-		//console.log(e.target);
-	});
-}
-function ModalOpenClose(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.removeClass('is_show').one('transitionend', function () {
-    if (!_getTarget.hasClass('is_show')) {
-      _getTarget.removeClass('');
-
-			// 남아있는 모달이 없는 경우 초기화
-			if ($('.modal_wrap.').length == 0) {
-				dimmHidden();
-			}
-		}
-	})
-}
-// ToastOpen
-function ToastOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.addClass('is_show');
-	setTimeout(function () { ToastClose(target) }, 3000);
-}
-function ToastClose(target) {
-	_getTarget.removeClass('is_show').one('transitionend', function () {
-		!_getTarget.hasClass('is_show') && _getTarget.removeClass('');
-	})
-}
 
 var btnScroll = null
 var btnScrollType2 = null

@@ -19,7 +19,12 @@
   &.list_2 {
     column-gap: 10px;
     row-gap: 30px;
-    li { width: calc(50% - 5px); } 
+    li { width: calc(100%/2 - 10*1px/2); } 
+  }
+  &.list_4 {
+    column-gap: 10px;
+    row-gap: 30px;
+    li { width: calc(100%/4 - 10*3px/4); } 
   }
 }
 .product_item {

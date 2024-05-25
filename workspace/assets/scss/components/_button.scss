@@ -1,13 +1,69 @@
 
-.btn {
+button[class^="btn_"]:not([class^="btn_ico"]){ 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
   height: 40px;
   padding: 0 20px;
-  border-radius: 24px;
-  border: 1px solid #ddd;
-}
-.pc_type {
-  
-}
-.mobile_type {
+  background: #000;
+  color: #fff;
+  font-size: 16px; 
+  &.btn_purple { background-color: purple; }
 
+  //line style
+  &.btn_line { 
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    color: #000;
+    &.purple { background-color: purple; color: #fff;} 
+  }
+
+  //round style 
+  &.btn_round {
+    background-color: #000; 
+    border: 1px solid #000; 
+    border-radius: 24px;
+    color: #fff;
+  }
+  
+  //
+  &.ico_right::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    background-color: #fff;
+  }
 }
+
+//text + icon, only icon
+button[class^="btn_ico"] { 
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+  &::after {
+    content: '';
+    display: inline-block;
+  }
+  &.btn_ico_right::after {
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    // background: url($path+'/icon/aa.png')
+  }
+}
+
+.btn_set {
+  display: flex;
+  column-gap: 8px;
+  button[class^="btn_"] { width: 100%; }
+  &.medium { width: 400px; }
+  &.large { width: 600px; }
+  &.row { 
+    flex-direction: column;
+    row-gap: 8px;
+  }
+}
+

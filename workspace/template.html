@@ -16,262 +16,94 @@
 
     <!-- 컨테이너 -->
     <section class="container">
-      <div class="pages on">
+      <div class="pages list_template on">
         <div class="btn_scroll_type">
-          <!-- tab_wrap -->  
-          <div class="tab_wrap">
-            <div class="tab_menu">
-              <button type="button" class="tab_btn is_active" data-tab="tab-03">MO</button>
-              <button type="button" class="tab_btn" data-tab="tab-02">PC</button>
-              <button type="button" class="tab_btn" data-tab="tab-04">LIB</button>
-            </div> 
-            <div class="tab_cont_wrap">
-         
-              <div data-id="tab-03" class="tab_cont is_active">
-                <div class="scroll_menu">
-                  <button type="button" class="btn is_active">Swiper</button>
-                  <button type="button" class="btn">List</button>
-                  <button type="button" class="btn">Popup</button>
-                  <button type="button" class="btn">Font</button>
-                  <button type="button" class="btn">Button</button>
-                  <button type="button" class="btn">Tab</button> 
-                  <button type="button" class="btn">Form</button>
-                  <button type="button" class="btn">Accordion</button>
-                  <button type="button" class="btn">Check, Radio</button>
-                  <button type="button" class="btn">List</button>
-                  <button type="button" class="btn">Table</button>
-                  <button type="button" class="btn">Etc</button>
-                </div>
-              </div>
-              <div data-id="tab-02" class="tab_cont">
-                <div class="scroll_menu">
-                  <button type="button" class="btn is_active">Swiper</button> 
-                  <button type="button" class="btn">Popup</button> 
-                  <button type="button" class="btn">Font</button>
-                  <button type="button" class="btn">Button</button>
-                  <button type="button" class="btn">Tab</button> 
-                  <button type="button" class="btn">Form</button>
-                  <button type="button" class="btn">Accordion</button>
-                  <button type="button" class="btn">Check, Radio</button>
-                  <button type="button" class="btn">List</button>
-                  <button type="button" class="btn">Table</button>
-                  <button type="button" class="btn">Etc</button>
-                </div>
-              </div>
-              <div data-id="tab-04" class="tab_cont">
-                <div class="scroll_menu">
-                  <button type="button" class="btn">jqueryUI</button> 
-                  <button type="button" class="btn">banner</button> 
-                  <button type="button" class="btn">graph</button> 
-                  <button type="button" class="btn">animate.css</button> 
-                </div>
-              </div>
-            </div> 
-          </div> 
-          <!-- //tab_wrap --> 
- 
-          <!-- scroll contents --> 
+          <div class="scroll_menu">
+            <button type="button" class="btn is_active">Swiper</button>
+            <button type="button" class="btn">List</button>
+            <button type="button" class="btn">Popup</button>
+            <button type="button" class="btn">Font</button>
+            <button type="button" class="btn">Button</button>
+            <button type="button" class="btn">Tab</button> 
+            <button type="button" class="btn">Form</button>
+            <button type="button" class="btn">Accordion</button>
+            <button type="button" class="btn">List</button>
+            <button type="button" class="btn">Table</button>
+            <button type="button" class="btn">Etc</button>
+          </div>
+        </div>
 
-          <!-- MO -->
-          <div class="scroll_wrap is_active">
-            <div class="category">
-              <p class="tit">Swiper</p>
-              <div class="cont">
-                <include src="./guide/html/swiper_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">List</p>
-              <div class="cont">
-                <include src="./guide/html/list_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Popup</p>
-              <div class="cont">
-                <include src="./guide/html/popup_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Font</p>
-              <div class="cont">
-                <include src="./guide/html/font_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Button</p>
-              <div class="cont">
-                <include src="./guide/html/button_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Tab</p>
-              <div class="cont">
-                <include src="./guide/html/tab_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Form</p>
-              <div class="cont">
-                <include src="./guide/html/form_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Accordion</p>
-              <div class="cont">
-                <include src="./guide/html/accordion_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Check, Radio</p>
-              <div class="cont">
-                <include src="./guide/html/radio_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">List</p>
-              <div class="cont">
-                <include src="./guide/html/form_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Table</p>
-              <div class="cont">
-                <include src="./guide/html/table_mo.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Etc</p>
-              <div class="cont">
-                <include src="./guide/html/etc_pc.html"></include>
-              </div>
+        <!-- scroll contents --> 
+        <div class="scroll_wrap is_active">
+          <div class="g_category">
+            <p class="g_tit">Swiper</p>
+            <div class="g_cont">
+              <include src="./guide/html/swiper.html"></include>
             </div>
           </div>
-          <!-- //MO -->
 
-          <!-- PC -->
-          <div class="scroll_wrap">
-            <div class="category">
-              <p class="tit">Swiper</p>
-              <div class="cont">
-                <include src="./guide/html/swiper_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Popup</p>
-              <div class="cont">
-                <include src="./guide/html/popup_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Font</p>
-              <div class="cont">
-                <include src="./guide/html/font_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Button</p>
-              <div class="cont">
-                <include src="./guide/html/button_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Tab</p>
-              <div class="cont">
-                <include src="./guide/html/tab_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Form</p>
-              <div class="cont">
-                <include src="./guide/html/form_pc.html"></include>
-              </div>
-            </div>
-            
-            <div class="category">
-              <p class="tit">Accordion</p>
-              <div class="cont">
-                <include src="./guide/html/accordion_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Check, Radio</p>
-              <div class="cont">
-                <include src="./guide/html/radio_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">List</p>
-              <div class="cont">
-                <include src="./guide/html/list_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Table</p>
-              <div class="cont">
-                <include src="./guide/html/table_pc.html"></include>
-              </div>
-            </div>
-
-            <div class="category">
-              <p class="tit">Etc</p>
-              <div class="cont">
-                <include src="./guide/html/etc_pc.html"></include>
-              </div>
-            </div>
-
-          </div>
-          <!-- //PC -->
-
-         
-
-          <!-- Lib -->
-          <div class="scroll_wrap">
-          <div class="category">
-            <p class="tit">JqueryUi</p>
-            <div class="cont">
-              <include src="./guide/html/lib_jquery_ui.html"></include>
+          <div class="g_category"> 
+            <p class="g_tit">List</p>
+            <div class="g_cont">
+              <include src="./guide/html/list.html"></include>
             </div>
           </div>
-          <div class="category">
-            <p class="tit">banner</p>
-            <div class="cont">
-              <include src="./guide/html/lib_banner.html"></include>
+
+          <div class="g_category">
+            <p class="g_tit">Popup</p>
+            <div class="g_cont">
+              <include src="./guide/html/popup.html"></include>
             </div>
           </div>
-          <div class="category">
-            <p class="tit">graph</p>
-            <div class="cont">
-              <include src="./guide/html/lib_banner.html"></include>
+
+          <div class="g_category">
+            <p class="g_tit">Font</p>
+            <div class="g_cont">
+              <include src="./guide/html/font.html"></include>
             </div>
           </div>
-          <div class="category">
-            <p class="tit">animate</p>
-            <div class="cont">
-              <include src="./guide/html/lib_banner.html"></include>
+
+          <div class="g_category">
+            <p class="g_tit">Button</p>
+            <div class="g_cont">
+              <include src="./guide/html/button.html"></include>
             </div>
           </div>
-          <!-- //Lib -->
-          <!-- //scroll contents -->
+
+          <div class="g_category">
+            <p class="g_tit">Tab</p>
+            <div class="g_cont">
+              <include src="./guide/html/tab.html"></include>
+            </div>
+          </div>
+
+          <div class="g_category">
+            <p class="g_tit">Form</p>
+            <div class="g_cont">
+              <include src="./guide/html/form.html"></include>
+            </div>
+          </div>
+
+          <div class="g_category">
+            <p class="g_tit">Accordion</p>
+            <div class="g_cont">
+              <include src="./guide/html/accordion.html"></include>
+            </div>
+          </div>
+
+          <div class="g_category">
+            <p class="g_tit">Table</p>
+            <div class="g_cont">
+              <include src="./guide/html/table.html"></include>
+            </div>
+          </div>
+
+          <div class="g_category">
+            <p class="g_tit">Etc</p>
+            <div class="g_cont">
+              <include src="./guide/html/etc.html"></include>
+            </div>
+          </div>
         </div>
       </div>
     </section> 

@@ -120,13 +120,13 @@ const fontClean = () => deleteAsync([paths.dist.font])
 const watchTask = () =>
 	watch(paths.work.gindex, {events: 'all'}, series(gindexClean, parallel([guides, gstyles, gimgs, htmls, scripts, images, fonts, styles]), gindexs)).on('change', browserSync.reload)
 	watch(paths.work.guide, {events: 'all'}, series(guideClean, parallel([guides]), gindexs)).on('change', browserSync.reload)
-	watch(paths.work.gscss, {events: 'all'}, series(gcssClean, gstyles)).on('change', browserSync.reload)
-	watch(paths.work.gimg, {events: 'all'}, series(gimgClean, gimgs)).on('change', browserSync.reload)
-	watch(paths.work.html, {events: 'all'}, series(htmlClean, htmls)).on('change', browserSync.reload)
-	watch(paths.work.scss, {events: 'all'}, series(cssClean, styles)).on('change', browserSync.reload)
-	watch(paths.work.js, {events: 'all'}, series(jsClean, scripts)).on('change', browserSync.reload)
-	watch(paths.work.img, {events: 'all'}, series(imgClean, images)).on('change', browserSync.reload)
-	watch(paths.work.font, {events: 'all'}, series(fontClean, fonts)).on('change', browserSync.reload)
+	watch(paths.work.gscss, {events: 'all'}, series(gcssClean, parallel([gstyles]), gindexs)).on('change', browserSync.reload)
+	watch(paths.work.gimg, {events: 'all'}, series(gimgClean, parallel([gimgs]), gindexs)).on('change', browserSync.reload)
+	watch(paths.work.html, {events: 'all'}, series(htmlClean, parallel([htmls]), gindexs)).on('change', browserSync.reload)
+	watch(paths.work.scss, {events: 'all'}, series(cssClean, parallel([styles]), gindexs)).on('change', browserSync.reload)
+	watch(paths.work.js, {events: 'all'}, series(jsClean, parallel([scripts]), gindexs)).on('change', browserSync.reload)
+	watch(paths.work.img, {events: 'all'}, series(imgClean, parallel([images]), gindexs)).on('change', browserSync.reload)
+	watch(paths.work.font, {events: 'all'}, series(fontClean, parallel([fonts]), gindexs)).on('change', browserSync.reload)
 
 const browserSyncServer = () =>  
 	browserSync.init({ 
