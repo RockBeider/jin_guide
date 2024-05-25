@@ -2,10 +2,6 @@
 
 <div class="tit_wrap between_center">
   <h2 class="tit_lv2">SWIPER_BANNER</h2>
-  <!-- <div class="pagination type_arrow" id="swiperPause">
-    <a href="#none" class="swiper-button-prev">앞으로</a>
-    <a href="#none" class="swiper-button-next">뒤로</a>
-  </div> -->
 </div>
 
 <div class="swiper swiper_banner" data-swiper="swiperPause">	 	
@@ -27,15 +23,14 @@
     <div class="bullet_wrap">
         <button type="button" class="play"><span class="blind">play</span></button>
         <button type="button" class="pause"><span class="blind">pause</span></button>
-        <div class="swiper-pagination"></div>
-    </div>
-    <div class="swiper_arrow_wrap">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
     </div>
   </div>
+  <div class="swiper_arrow_wrap">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <div class="swiper-pagination"></div>
 </div>
-
 
 <script>
   var swiperPause = new Swiper('[data-swiper="swiperPause"]', {
@@ -43,7 +38,7 @@
     autoplay: {
       delay: 2000,
     },
-    // loop: true,
+    loop: true,
     pagination: {
       el: '[data-swiper="swiperPause"] > .swiper-pagination',
       clickable: true,
@@ -52,21 +47,21 @@
       nextEl: '[data-swiper="swiperPause"] .swiper-button-next',
       prevEl: '[data-swiper="swiperPause"] .swiper-button-prev',
     },
-    on: {
-      init: function () {
-        $('.swiper_banner .play').css({ 'display': 'none' });
-        $('.swiper_banner .play').on('click', function () {
-          prdSubBanner.autoplay.start();
-          $('.swiper_banner .pause').css({ 'display': 'inline-block' });
-          $('.swiper_banner .play').css({ 'display': 'none' });
-        });
-        $('.swiper_banner .pause').on('click', function () {
-          prdSubBanner.autoplay.stop();
-          $('.swiper_banner .pause').css({ 'display': 'none' });
-          $('.swiper_banner .play').css({ 'display': 'inline-block' });
-        });
-      },
-    },
+    // on: {
+    //   init: function () {
+    //     $('.swiper_banner .play').css({ 'display': 'none' });
+    //     $('.swiper_banner .play').on('click', function () {
+    //       prdSubBanner.autoplay.start();
+    //       $('.swiper_banner .pause').css({ 'display': 'inline-block' });
+    //       $('.swiper_banner .play').css({ 'display': 'none' });
+    //     });
+    //     $('.swiper_banner .pause').on('click', function () {
+    //       prdSubBanner.autoplay.stop();
+    //       $('.swiper_banner .pause').css({ 'display': 'none' });
+    //       $('.swiper_banner .play').css({ 'display': 'inline-block' });
+    //     });
+    //   },
+    // },
   });
 </script>
 
@@ -172,10 +167,6 @@
 <!-- progressbar , slide 3개 , hover 좌우버튼 -->
 <div class="tit_wrap between_center">
   <h2 class="tit_lv2">SWIPER_PROGRESS_BTNS</h2>
-  <div class="pagination type_arrow" id="swiperProgressBtns">
-    <a href="#none" class="swiper-button-prev">앞으로</a>
-    <a href="#none" class="swiper-button-next">뒤로</a>
-  </div>
 </div>
 <div class="swiper swiper_progress" data-swiper="swiperProgressBtns">		
   <ul class="swiper-wrapper">
@@ -236,14 +227,13 @@
     threshold: 0,
     slidesPerGroup: 3,
     ally: false,
-    // // nested: true,
     pagination: {
       el: '[data-swiper="swiperProgressBtns"] > .swiper-pagination',
       type: 'progressbar',
     },
     navigation: {
-      nextEl: '#swiperProgressBtns .swiper-button-next',
-      prevEl: '#swiperProgressBtns .swiper-button-prev',
+      nextEl: '[data-swiper="swiperProgressBtns"] .swiper-button-next',
+      prevEl: '[data-swiper="swiperProgressBtns"] .swiper-button-prev',
     },
   });
 </script>
@@ -399,7 +389,6 @@
     threshold: 0,
     slidesPerGroup: 3,
     ally: false,
-    // // nested: true,
     pagination: {
       el: '[data-swiper="swiperParent"] > .swiper-pagination',
       type: 'progressbar',
@@ -430,6 +419,7 @@
         spaceBetween: 10,
         threshold: 0,
         ally: false,
+        nested: true,
         // freeMode: false,
         nested: true,
         navigation: {

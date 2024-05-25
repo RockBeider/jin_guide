@@ -1,16 +1,58 @@
-// .badge_wrap {
-//   display: inline-flex;
-//   flex-wrap: wrap;
-//   [class^='badge'] {
-//     display: inline-flex;
-//     justify-content: center;
-//     font-size: 11px;
-//     color: #fff;
-//     background-color: #000;
-//     padding: 5px 9px 6px;
-//     white-space: nowrap;
-//     font-weight: 400;
-//     height: 24px;
-//     line-height: 1.45
-//   }
-// }
+$path : '../../assets/img';
+.check_group {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
+/* checkbox/radio */
+.radio, .checkbox, .radioChk {
+  position: relative;
+  // display: inline-flex;
+  // align-items: center;
+  font-size: 14px; line-height: 22px; min-height: 20px;
+  label {
+    // display: inline-flex;
+    // align-items: center;
+    padding-left:20px;
+    &::before {
+      background-repeat: no-repeat; 
+      background-position: center center; 
+      background-size: 20px 20px;
+      width: 20px; height: 20px; left: 0; top: 1px;
+    }
+    > span {padding-left:10px;}
+  }
+  input[type=radio], 
+  input[type=checkbox] {
+    cursor: pointer; 
+    position: absolute; 
+    opacity: 0 !important; 
+    outline:none;
+    width: 20px; height: 20px; left: 0; top: 1px;
+  }
+}
+.radio label, 
+.toggle label {
+  position: relative; 
+  // display: block;
+}
+.checkbox label, 
+.radioChk label {
+  position: relative; 
+  // display: flex;
+}
+.radio label::before, 
+.radio label::after, 
+.checkbox label::before, 
+.radioChk label::before { 
+  content: ''; 
+  display: block;
+  position: absolute;
+}
+
+.radioChk input { display: none; }
+.checkbox input:checked+label::before {background-image:url($path+'/icon/ico_check_checked.png');}
+.checkbox input:disabled+label::before {background-image:url($path+'/icon/ico_check_disable.png');}
+.checkbox input:disabled:checked+label::before {background-image:url($path+'/icon/ico_check_checked_disable.png');}
+.checkbox label::before {background-image:url($path+'/icon/ico_check.png');}
