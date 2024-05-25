@@ -1,0 +1,11 @@
+
+# Dependency directories
+node_modules
+
+# dependencies
+/node_modules
+
+# System Files
+.DS_Store
+
+.vscode/

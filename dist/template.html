@@ -213,25 +213,20 @@
                       <div class="thumb_area">
                         <span class="thumb"><img src="../../assets/img/temp/pick_img03.png" alt=""/></span>
                         <div class="badge_wrap">
-                          <span class="badge_s">FOUND TALK</span>
+                          <span class="badge_s black">BADGE</span>
                         </div>
+                        <button type="button" class="btn_like">좋아요</button>
                       </div>
                       <div class="info_area">
                         <p class="tit">OSOI Brand Name OSOI Brand Name OSOI</p>
                         <p class="sub">CUBIC RIBBON OVERFIT T</p>
-                        <ul class="badge_auto_list">
-                          <li>NEW</li>
-                          <li>COUPON</li>
-                          <li>EXCLUSIVE</li>
-                        </ul>
-                        <div class="price_wrap">
-                          <del class="normal">189,000</del>
-                          <span class="discount">20%</span>
-                          <span class="current">139,000</span>
-                        </div>
+                      </div>
+                      <div class="price_area">
+                        <del class="normal">189,000</del>
+                        <span class="discount">20%</span>
+                        <span class="current">139,000</span>
                       </div>
                     </a>
-                    <button type="button" class="button_equal">좋아요</button>
                   </li>
 
                   <li>
@@ -239,33 +234,37 @@
                       <div class="thumb_area">
                         <span class="thumb"><img src="../../assets/img/temp/pick_img03.png" alt=""/></span>
                         <div class="badge_wrap">
-                          <span class="badge_s soldout">SOLD OUT</span>
+                          <span class="badge_s black">BADGE</span>
                         </div>
+                        <button type="button" class="btn_like">좋아요</button>
                       </div>
                       <div class="info_area">
                         <p class="tit">OSOI</p>
                         <p class="sub">RIBBON OVERFIT T_SHIRT</p>
-                        <div class="price_wrap">
-                          <span class="current">139,000</span>
-                        </div>
+                      </div>
+                      <div class="price_area">
+                        <del class="normal">189,000</del>
+                        <span class="discount">20%</span>
+                        <span class="current">139,000</span>
                       </div>
                     </a>
-                    <button type="button" class="button_equal">좋아요</button>
                   </li>
                   <li>
                     <a href="#none" class="product_item">
                       <div class="thumb_area">
                         <span class="thumb"><img src="../../assets/img/temp/pick_img03.png" alt=""/></span>
+                        <button type="button" class="btn_like">좋아요</button>
                       </div>
                       <div class="info_area">
                         <p class="tit">OSOI</p>
                         <p class="sub">RIBBON OVERFIT T_SHIRT</p>
-                        <div class="price_wrap">
-                          <span class="current">139,000</span>
-                        </div>
+                      </div>
+                      <div class="price_area">
+                        <del class="normal">189,000</del>
+                        <span class="discount">20%</span>
+                        <span class="current">139,000</span>
                       </div>
                     </a>
-                    <button type="button" class="button_equal">좋아요</button>
                   </li>
                 </ul>
 
@@ -353,10 +352,6 @@
 
                 <div class="tit_wrap between_center">
                   <h2 class="tit_lv2">SWIPER_BANNER</h2>
-                  <!-- <div class="pagination type_arrow" id="swiperPause">
-                    <a href="#none" class="swiper-button-prev">앞으로</a>
-                    <a href="#none" class="swiper-button-next">뒤로</a>
-                  </div> -->
                 </div>
 
                 <div class="swiper swiper_banner" data-swiper="swiperPause">	 	
@@ -378,15 +373,14 @@
                     <div class="bullet_wrap">
                         <button type="button" class="play"><span class="blind">play</span></button>
                         <button type="button" class="pause"><span class="blind">pause</span></button>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <div class="swiper_arrow_wrap">
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
                     </div>
                   </div>
+                  <div class="swiper_arrow_wrap">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
                 </div>
-
 
                 <script>
                   var swiperPause = new Swiper('[data-swiper="swiperPause"]', {
@@ -394,7 +388,7 @@
                     autoplay: {
                       delay: 2000,
                     },
-                    // loop: true,
+                    loop: true,
                     pagination: {
                       el: '[data-swiper="swiperPause"] > .swiper-pagination',
                       clickable: true,
@@ -403,21 +397,21 @@
                       nextEl: '[data-swiper="swiperPause"] .swiper-button-next',
                       prevEl: '[data-swiper="swiperPause"] .swiper-button-prev',
                     },
-                    on: {
-                      init: function () {
-                        $('.swiper_banner .play').css({ 'display': 'none' });
-                        $('.swiper_banner .play').on('click', function () {
-                          prdSubBanner.autoplay.start();
-                          $('.swiper_banner .pause').css({ 'display': 'inline-block' });
-                          $('.swiper_banner .play').css({ 'display': 'none' });
-                        });
-                        $('.swiper_banner .pause').on('click', function () {
-                          prdSubBanner.autoplay.stop();
-                          $('.swiper_banner .pause').css({ 'display': 'none' });
-                          $('.swiper_banner .play').css({ 'display': 'inline-block' });
-                        });
-                      },
-                    },
+                    // on: {
+                    //   init: function () {
+                    //     $('.swiper_banner .play').css({ 'display': 'none' });
+                    //     $('.swiper_banner .play').on('click', function () {
+                    //       prdSubBanner.autoplay.start();
+                    //       $('.swiper_banner .pause').css({ 'display': 'inline-block' });
+                    //       $('.swiper_banner .play').css({ 'display': 'none' });
+                    //     });
+                    //     $('.swiper_banner .pause').on('click', function () {
+                    //       prdSubBanner.autoplay.stop();
+                    //       $('.swiper_banner .pause').css({ 'display': 'none' });
+                    //       $('.swiper_banner .play').css({ 'display': 'inline-block' });
+                    //     });
+                    //   },
+                    // },
                   });
                 </script>
 
@@ -523,10 +517,6 @@
                 <!-- progressbar , slide 3개 , hover 좌우버튼 -->
                 <div class="tit_wrap between_center">
                   <h2 class="tit_lv2">SWIPER_PROGRESS_BTNS</h2>
-                  <div class="pagination type_arrow" id="swiperProgressBtns">
-                    <a href="#none" class="swiper-button-prev">앞으로</a>
-                    <a href="#none" class="swiper-button-next">뒤로</a>
-                  </div>
                 </div>
                 <div class="swiper swiper_progress" data-swiper="swiperProgressBtns">		
                   <ul class="swiper-wrapper">
@@ -587,14 +577,13 @@
                     threshold: 0,
                     slidesPerGroup: 3,
                     ally: false,
-                    // // nested: true,
                     pagination: {
                       el: '[data-swiper="swiperProgressBtns"] > .swiper-pagination',
                       type: 'progressbar',
                     },
                     navigation: {
-                      nextEl: '#swiperProgressBtns .swiper-button-next',
-                      prevEl: '#swiperProgressBtns .swiper-button-prev',
+                      nextEl: '[data-swiper="swiperProgressBtns"] .swiper-button-next',
+                      prevEl: '[data-swiper="swiperProgressBtns"] .swiper-button-prev',
                     },
                   });
                 </script>
@@ -750,7 +739,6 @@
                     threshold: 0,
                     slidesPerGroup: 3,
                     ally: false,
-                    // // nested: true,
                     pagination: {
                       el: '[data-swiper="swiperParent"] > .swiper-pagination',
                       type: 'progressbar',
@@ -781,6 +769,7 @@
                         spaceBetween: 10,
                         threshold: 0,
                         ally: false,
+                        nested: true,
                         // freeMode: false,
                         nested: true,
                         navigation: {
@@ -832,7 +821,28 @@
             <div class="category">
               <p class="tit">Form</p>
               <div class="cont">
-                
+                <div class="check_group">
+                  <div class="checkbox">
+                    <input type="checkbox" name="chkOpt" id="chkOpt1">
+                    <label for="chkOpt1"><span>CHECKBOX1</span></label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" name="chkOpt" id="chkOpt2" checked="">
+                    <label for="chkOpt2"><span>CHECKBOX2</span></label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" name="chkOpt" id="chkOpt3">
+                    <label for="chkOpt3"><span>CHECKBOX3</span></label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" name="chkOpt" id="chkOpt4">
+                    <label for="chkOpt4"><span>CHECKBOX4</span></label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" name="chkOpt" id="chkOpt5">
+                    <label for="chkOpt5"><span>CHECKBOX5</span></label>
+                  </div>
+                </div> 
               </div>
             </div>
             
