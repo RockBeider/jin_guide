@@ -1,127 +1,111 @@
-// .layer_wrap {
-//   position: fixed;
-//   top: 0;
-//   left: -100%;
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   overflow: hidden;
-//   z-index: 1000;
-//   &.show {
-//     left: 0;
-//     opacity: 1;
-//     .layer_body {
-//       opacity: 1;
-//       transform: translateY(0px);
-//     }
-//     .layer_dimm {
-//       opacity: 0;
-//       left: 0;
-//     }
-//   }
-//   .layer_head {
-//     font-size: 16px;
-//   }
-//   .layer_body {
-//     position: relative;
-//     width: 724px;
-//     margin: auto;
-//     border: 1px solid #ddd;
-//     overflow: hidden;
-//     z-index: 10;
-//     opacity: 0;
-//     transition: 0.3s;
-//     transform: translateY(-50px);
-//   }
-//   .layer_head, .layer_cont, .layer_foot {
-//     padding: 0 20px;
-//   }
-//   .layer_foot {
-//     padding-bottom: 20px;
-//   }
-//   .layer_dimm {
-//     position: fixed;
-//     top: 0;
-//     left: -100%;
-//     width: calc(100%);
-//     height: 100%;
-//     background: rgba(0, 0, 0, 0.4);
-//     transition: opacity 0.3s;
-//     opacity: 0;
-//   }
-//   .layer_close {
-//     position: absolute;
-//     top: 20px;
-//     right: 20px;
-//     width: 40px;
-//     height: 40px;
-//   }
-// }
 
 
-
-/************ popups *************/
-/* Modal Bottomsheet */
-.modal_wrap { visibility: hidden; display:flex; position: fixed; left:0; top:0; width:100%; height:100%; z-index: 1100; } 
-.modal { position: relative; z-index: 1001; display:flex; flex-direction: column; background-color: var(--bg-color-white); overflow: hidden; } 
-.modal_header {position: relative; z-index: 100; width:100%; text-align:center; flex: 0 0 60px} 
-.modal_wrap .toast { bottom: 96px;}
-
-.modal .modal_close_btn { position:absolute; z-index: 101; top:16px; right: 16px; display:block; width:28px; height: 28px; cursor: pointer;
-    background:url("../image/icon/icon_p_close.png") no-repeat center; font-size:0}  
-/*.modal .modal_close_btn:before,
-.modal .modal_close_btn:after { position: absolute; top:7px; left: 12px; content:' '; height: 18px; width: 1px; background-color: var(--bg-color-black); } 
-.modal .modal_close_btn:before { transform: rotate(45deg); } 
-.modal .modal_close_btn:after { transform: rotate(-45deg); } */
-
-.is_dimmed { overflow: hidden !important; touch-action:none !important; position: fixed; left:0; top:0; width: 100%; height: 100%; } 
-.dimmer { visibility: hidden; opacity: 0; transition: all 0.5s ease; display: block; position: fixed; left: 0; top: 0; z-index: 1000; width: 100%; height: 100%; background-color: var(--bg-color-black02); -ms-touch-action: none; touch-action: none; } 
-.is_visible .dimmer,
-.is_visible.dimmer { visibility: visible; } 
-.is_active .dimmer,
-.is_active.dimmer { opacity: 1; } 
-.is_active .modal_bottomsheet + .dimmer { opacity: 0.6; } 
-.modal_wrap.is_visible { visibility: visible; pointer-events: auto; } 
-.modal_wrap.is_active .modal_bottomsheet { transform: translateY(0%); transition: all 0.5s ease; } 
-
-
-/* 모달 레이아웃 */
-
-.modal_wrap {
+/**  common  **/
+.modal_wrap { 
+  display: flex;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;
-  
-  display: none;
-  &.is_show { display: block; }
-  &.size_s .modal { width: 500px; }
-  &.size_m .modal  { width: 780px; }
-  &.size_l .modal  { width: 1000px; }
-  &.modal_dimmed {
+  top: 0; left: -100%; 
+  width:100%; 
+  height:100%; 
+  z-index: 1000; 
+  &.is_show { 
+    left: 0;
+    .modal { 
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    .dimmer { opacity: 1; left: 0;}
+  }
+  &.small .modal { width: 500px;}
+  &.medium .modal { width: 600px;}
+  &.large .modal { width: 800px;}
+  .dimmer {
+    position: fixed;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, .4);
+    transition: opacity 0.5s ease;
     opacity: 0;
-    transform: scale(0.75); 
-    transition: all 0.2s ease;
-      &.is_show { opacity: 1; transform: scale(1);}
+  }
+} 
+.modal {
+  position: relative;
+  width: 724px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.modal_header { 
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px; 
+  border-bottom: 1px solid #ddd; 
+  .modal_close { 
+    position: absolute; 
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
   }
 }
-.modal {
-  
-}
-.modal_header {
-  height: 60px;
-  padding: 0 20px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
 .modal_content {
-  
+  max-height: calc(100vh - 300px);
+  padding: 40px 20px;
+  overflow: auto;
 }
-
 .modal_footer {
-
+  border-top: 1px solid #ddd;
+  .btn_set { gap: 0; }
 }
 
-.dimmer {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;
-}
+/* modal Bottomsheet */
+
+
+/* modal Toast */
+
+/* toast */
+.toast { 
+  position: fixed; 
+  left: 50%; bottom: 40px; 
+  width: 600px; 
+  margin-left: -300px; 
+  height: 50px;
+  padding: 10px; 
+  border-radius: 2px; 
+  background-color: rgba(#000, 0.8); 
+  color: #fff;  
+  text-align: center; 
+  opacity: 0; 
+  transform: translateY(-20%); 
+  transition: all 0.25s ease; 
+  z-index: 1400; 
+  &.is_show { opacity: 1; transform: translateY(0%); } 
+  .toast_txt { font-size:14px; color: #fff; } 
+} 
+
+// .modal_wrap .toast { bottom: 96px;}
+
+// .modal .modal_close_btn { position:absolute; z-index: 101; top:16px; right: 16px; display:block; width:28px; height: 28px; cursor: pointer;
+//     background:url("../image/icon/icon_p_close.png") no-repeat center; font-size:0}  
+
+
+// .layerWrap.show .dimmer {
+  
+// }
+// .is_dimmed { overflow: hidden !important; touch-action:none !important; position: fixed; left:0; top:0; width: 100%; height: 100%; } 
+// .dimmer { visibility: hidden; opacity: 0; transition: all 0.5s ease; display: block; position: fixed; left: 0; top: 0; z-index: 1000; width: 100%; height: 100%; background-color: var(--bg-color-black02); -ms-touch-action: none; touch-action: none; } 
+// .is_visible .dimmer,
+// .is_visible.dimmer { visibility: visible; } 
+// .is_active .dimmer,
+// .is_active.dimmer { opacity: 1; } 
+// .is_active .modal_bottomsheet + .dimmer { opacity: 0.6; } 
+// .modal_wrap.is_visible { visibility: visible; pointer-events: auto; } 
+// .modal_wrap.is_active .modal_bottomsheet { transform: translateY(0%); transition: all 0.5s ease; } 
+
+

@@ -10,6 +10,7 @@ button[class^="btn_"]:not([class^="btn_ico"]){
   color: #fff;
   font-size: 16px; 
   &.btn_purple { background-color: purple; }
+  &.btn_white { background-color: #fff; color: #000; }
 
   //line style
   &.btn_line { 
@@ -27,16 +28,19 @@ button[class^="btn_"]:not([class^="btn_ico"]){
     color: #fff;
   }
   
-  //
-  &.ico_right::after {
+  //icon
+  &[class*="ico_"]:after {
     content: '';
     display: inline-block;
+  }
+  &.ico_right::after {
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
     background-color: #fff;
   }
 }
+
 
 //text + icon, only icon
 button[class^="btn_ico"] { 

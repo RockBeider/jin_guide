@@ -699,45 +699,95 @@
               <div class="g_template">
                 <button type="button" class="btn_round">alert</button>
                 <br/>
-                <button type="button" class="btn_round">small popup</button>
-                <button type="button" class="btn_round">medium popup</button>
-                <button type="button" class="btn_round">large popup</button>
+                <button type="button" class="btn_round modal_open" aria-controls="modalSmall">small popup</button>
+                <button type="button" class="btn_round modal_open" aria-controls="modalMedium">medium popup</button>
+                <button type="button" class="btn_round modal_open" aria-controls="modalLarge">large popup</button>
                 <br/>
                 <button type="button" class="btn_round">bottom popup : mobile</button>
-                <button type="button" class="btn_round">toast popup : mobile</button>
+                <button type="button" class="btn_round toast_open" aria-controls="toast">toast popup : mobile</button>
 
                 <button type="button" class="btn_round">공지 popup</button>
               </div>
 
 
 
-              <!-- Modal Dimmed L -->
-              <!-- [D] 실 작업 시 is_show 제거 -->
-              <div class="modal_wrap is_show" data-modal="ModalDimmed1">
+              <!-- modal dimmed small -->
+              <div class="modal_wrap small" data-modal="modalSmall">
+                <div class="dimmer"></div>
                 <div class="modal">
-                  <!-- header -->
                   <div class="modal_header">
                     <h3>Title</h3>
+                    <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalSmall">닫기</button>
                   </div>
-                  <!-- //header -->
-                  <!-- content -->
                   <div class="modal_content">
-                    <div class="mcus_scroll">
-                content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-                      content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-                      content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-                      content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-                      content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-                      content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
-                      content<br>content<br> content<br>content<br>
+                    <div>
+                      팝업 컨텐츠 들어갑니다.<br/>
+                      팝업 컨텐츠 들어갑니다.<br/>
                     </div>
                   </div>
-                  <!-- //content -->
-                  <button type="button" class="modal_close_btn" onclick="ModalOpenClose('ModalDimmed1')"><span class="blind">닫기</span></button>
+                  <div class="modal_footer">
+                    <div class="btn_set">
+                      <button type="button" class="btn_white">NO</button>
+                      <button type="button" class="btn_black">YES</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="dimmer" aria-hidden="true"></div>
               </div>
-              <!-- // Modal Dimmed L -->
+              <!-- // modal dimmed small -->
+
+              <!-- modal dimmed medium -->
+              <div class="modal_wrap medium" data-modal="modalMedium">
+                <div class="dimmer"></div>
+                <div class="modal">
+                  <div class="modal_header">
+                    <h3>Title</h3>
+                    <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalMedium">닫기</button>
+                  </div>
+                  <div class="modal_content">
+                    <div>
+                      팝업 컨텐츠 들어갑니다.<br/>
+                      팝업 컨텐츠 들어갑니다.<br/>
+                    </div>
+                  </div>
+                  <div class="modal_footer">
+                    <div class="btn_set">
+                      <button type="button" class="btn_white">NO</button>
+                      <button type="button" class="btn_black">YES</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- // modal dimmed medium -->
+
+              <!-- modal dimmed large -->
+              <div class="modal_wrap large" data-modal="modalLarge">
+                <div class="dimmer"></div>
+                <div class="modal">
+                  <div class="modal_header">
+                    <h3>Title</h3>
+                    <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalLarge">닫기</button>
+                  </div>
+                  <div class="modal_content">
+                    <div>
+                      팝업 컨텐츠 들어갑니다.<br/>
+                      팝업 컨텐츠 들어갑니다.<br/>
+                    </div>
+                  </div>
+                  <div class="modal_footer">
+                    <div class="btn_set">
+                      <button type="button" class="btn_white">NO</button>
+                      <button type="button" class="btn_black">YES</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- // modal dimmed large -->
+
+              <!-- toast -->
+              <div class="toast" data-toast="toast">
+                <p class="toast_txt">토스트 팝업입니다.</p>
+              </div>
+
 
             </div>
           </div>

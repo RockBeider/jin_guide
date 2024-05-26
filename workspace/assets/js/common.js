@@ -1,43 +1,5 @@
 
 
-function layerOpenSetting(){
-  var btns = $('.open_layer');
-  btns.on('click',function(){
-    
-    layerOpen(this.getAttribute('aria-controls'),this);
-    return false;
-  })
-  $(document).on('click','.layer_dimm' , function(){
-    var layerwrap = $(this).closest('.layer_wrap');
-    if(layerwrap.hasClass('modal')) return false;
-    layerwrap.removeClass('show')
-    layerwrap[0].focusTarget.focus()
-    return false; 
-  })
-  $(document).on('click', '.layer_close',function(){
-    var layerwrap = $(this).closest('.layer_wrap');
-    layerwrap.removeClass('show');
-    layerwrap[0].focusTarget.focus();
-    return false;
-  })
-}
-/* layer control  */
-function layerOpen(id, obj) {
-  $('html').css({ overflow: 'hidden' })
-  var layer = $('#' + id)
-  layer.addClass('show');
-  layer.find('.layer_body').attr({ tabindex: 0 }).focus();
-  layer[0].focusTarget = obj;
-}
-function layerClose(id) {
-  $('html').css({ overflow: 'auto' })
-  var layer = $('#' + id)
-  layer.removeClass('show');
-
-  layer.find('.layer_body').attr({ tabindex: -1 });
-  layer[0]?.focusTarget?.focus();
-}
-
 
 
 /* 접근성 아코디언 */
@@ -589,92 +551,153 @@ $.tab = function () {
 
 
 
-// Modal full popup
-function ModalFPOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.css({ 'z-index': '1100' });
-	dimmVisible();
-	_getTarget.addClass('');
-}
-function ModalFPClose(id) {
-	_getTarget.removeClass('');
+// // Modal full popup
+// function ModalFPOpen(target) {
+//   var _getTarget = $('[data-modal='+target+']');
+// 	_getTarget.css({ 'z-index': '1100' });
+// 	dimmVisible();
+// 	_getTarget.addClass('');
+// }
+// function ModalFPClose(id) {
+// 	_getTarget.removeClass('');
 
-	// 남아있는 모달이 없는 경우 초기화
-	if ($('.modal_wrap.').length == 0) {
-		dimmHidden();
-	}
-}
+// 	// 남아있는 모달이 없는 경우 초기화
+// 	if ($('.modal_wrap.').length == 0) {
+// 		dimmHidden();
+// 	}
+// }
 
-// Alert popup
-function ModalAlertOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.css({ 'z-index': '1300' });
-	dimmVisible();
-	_getTarget.addClass('is_show');
-}
-function ModalAlertClose(id) {
-	_getTarget.removeClass('is_show').one('transitionend', function () {
-		if (!_getTarget.hasClass('is_show')) {
-			_getTarget.removeClass('');
+// // Alert popup
+// function ModalAlertOpen(target) {
+//   var _getTarget = $('[data-modal='+target+']');
+// 	_getTarget.css({ 'z-index': '1300' });
+// 	dimmVisible();
+// 	_getTarget.addClass('is_show');
+// }
+// function ModalAlertClose(id) {
+// 	_getTarget.removeClass('is_show').one('transitionend', function () {
+// 		if (!_getTarget.hasClass('is_show')) {
+// 			_getTarget.removeClass('');
 
-			// 남아있는 모달이 없는 경우 초기화
-			if ($('.modal_wrap.').length == 0) {
-				dimmHidden();
-			}
-		}
-	})
-}
+// 			// 남아있는 모달이 없는 경우 초기화
+// 			if ($('.modal_wrap.').length == 0) {
+// 				dimmHidden();
+// 			}
+// 		}
+// 	})
+// }
 
-// Dimmed popup
-function ModalOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.css({ 'z-index': '1300' });
-	dimmVisible();
-	_getTarget.addClass('is_show');
+// // Dimmed popup
+// function ModalOpen(target) {
+//   var _getTarget = $('[data-modal='+target+']');
+// 	_getTarget.css({ 'z-index': '1300' });
+// 	dimmVisible();
+// 	_getTarget.addClass('is_show');
 
-	$('.dimmer').click(function (e){
-		_getTarget.removeClass('is_show').one('transitionend', function () {
-			if (!_getTarget.hasClass('is_show')) {
-				_getTarget.removeClass('');
+// 	$('.dimmer').click(function (e){
+// 		_getTarget.removeClass('is_show').one('transitionend', function () {
+// 			if (!_getTarget.hasClass('is_show')) {
+// 				_getTarget.removeClass('');
 	
-				// 남아있는 모달이 없는 경우 초기화
-				if ($('.modal_wrap.').length == 0) {
-					dimmHidden();
-				}
-			}
-		})
-		//console.log(e.target);
-	});
-}
-function ModalOpenClose(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.removeClass('is_show').one('transitionend', function () {
-    if (!_getTarget.hasClass('is_show')) {
-      _getTarget.removeClass('');
+// 				// 남아있는 모달이 없는 경우 초기화
+// 				if ($('.modal_wrap.').length == 0) {
+// 					dimmHidden();
+// 				}
+// 			}
+// 		})
+// 		//console.log(e.target);
+// 	});
+// }
+// function ModalOpenClose(target) {
+//   var _getTarget = $('[data-modal='+target+']');
+// 	_getTarget.removeClass('is_show').one('transitionend', function () {
+//     if (!_getTarget.hasClass('is_show')) {
+//       _getTarget.removeClass('');
 
-			// 남아있는 모달이 없는 경우 초기화
-			if ($('.modal_wrap.').length == 0) {
-				dimmHidden();
-			}
-		}
+// 			// 남아있는 모달이 없는 경우 초기화
+// 			if ($('.modal_wrap.').length == 0) {
+// 				dimmHidden();
+// 			}
+// 		}
+// 	})
+// }
+// // ToastOpen
+// function ToastOpen(target) {
+//   var _getTarget = $('[data-modal='+target+']');
+// 	_getTarget.addClass('is_show');
+// 	setTimeout(function () { ToastClose(target) }, 3000);
+// }
+// function ToastClose(target) {
+// 	_getTarget.removeClass('is_show').one('transitionend', function () {
+// 		!_getTarget.hasClass('is_show') && _getTarget.removeClass('');
+// 	})
+// }
+
+
+// modal
+$.modal = function () {
+  var btns = $('.modal_open');
+  btns.on('click', function(){
+    layerOpen(this.getAttribute('aria-controls'),this);
+    return false;
+  })
+  $(document).on('click', '.dimmer' , function(){
+    var modalWrap = $(this).closest('.modal_wrap');
+    modalWrap.removeClass('is_show')
+    modalWrap[0].focusTarget.focus()
+    return false;
+  })
+  $(document).on('click', '.modal_close', function(){
+    var modalWrap = $(this).closest('.modal_wrap');
+    modalWrap.removeClass('is_show');
+    modalWrap[0].focusTarget.focus();
+    return false;
+  })
+}
+/* modal control  */
+function layerOpen(target , obj){
+  // $('html').css({overflow:'hidden'})
+  var layer = $(`[data-modal=${target}]`)
+  layer.addClass('is_show');
+  layer.find('.modal').attr({tabindex:0}).focus();
+  layer[0].focusTarget = obj;
+}
+
+function layerClose(target){
+  // $('html').css({overflow:'auto'})
+  var layer = $(`[data-modal=${target}]`)
+  layer.removeClass('is_show');
+
+  layer.find('.modal').attr({tabindex:-1});
+  layer[0]?.focusTarget?.focus();
+}
+
+// Toast
+$.toast = function () {
+  var toastbtns = $('.toast_open');
+  toastbtns.on('click', function(){
+    toastOpen(this.getAttribute('aria-controls'),this);
+    return false;
+  })
+}
+// toastOpen
+function toastOpen(target) {
+	$(`[data-modal=${target}]`).addClass('is_show');
+	setTimeout(function () { toastClose(target) }, 3000);
+}
+function toastClose(target) {
+	$(`[data-modal=${target}]`).removeClass('is_show').one('transitionend', function () {
+		!$(`[data-modal=${target}]`).hasClass('is_show');
 	})
 }
-// ToastOpen
-function ToastOpen(target) {
-  var _getTarget = $('[data-modal='+target+']');
-	_getTarget.addClass('is_show');
-	setTimeout(function () { ToastClose(target) }, 3000);
-}
-function ToastClose(target) {
-	_getTarget.removeClass('is_show').one('transitionend', function () {
-		!_getTarget.hasClass('is_show') && _getTarget.removeClass('');
-	})
-}
+
+
 
 var btnScroll = null
 var btnScrollType2 = null
 $(function(){
-  layerOpenSetting(); // layer btn search
+  $.modal(); 
+  $.toast(); 
   console.log('!')
 
   $.tab();
