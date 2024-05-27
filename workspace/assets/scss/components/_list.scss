@@ -85,6 +85,31 @@
  }
 }
 
+
+.product_item { 
+  &.column { 
+    display: flex; 
+    .thumb { flex-shrink: 0; width: 60px; height: 60px; padding: 0; border-radius: 50%; overflow: hidden; }
+    .info_area {  
+      margin-top: 0;
+      padding: 0 15px;  
+      overflow: hidden; 
+      .brand { 
+        margin-top: 0; 
+        font-size: 16px; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+      }
+      .product { 
+        -webkit-line-clamp: 1;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+
+
 // .badge_list {
 //   display: flex; 
 //   flex-wrap: wrap;

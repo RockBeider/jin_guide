@@ -404,12 +404,6 @@ function scroll_tab(anchor_id, speed) {
   var a_tag = $("#" + anchor_id);
   if (a_tag.length > 0) {
     $("html, body").stop().scrollTop(a_tag.offset().top - $(".sticky").height() - 100);
-    // $("html, body").stop().animate(
-    //   {
-    //     scrollTop: a_tag.offset().top - $(".sticky").height() - 100, //sticky class 높이 제외하고 100정도 밑
-    //   },
-    //   speed
-    // );
   } else {
     console.log("no target");
   }
@@ -514,88 +508,6 @@ $.tab = function () {
   });
 };
 
-// // Modal full popup
-// function ModalFPOpen(target) {
-//   var _getTarget = $('[data-modal='+target+']');
-// 	_getTarget.css({ 'z-index': '1100' });
-// 	dimmVisible();
-// 	_getTarget.addClass('');
-// }
-// function ModalFPClose(id) {
-// 	_getTarget.removeClass('');
-
-// 	// 남아있는 모달이 없는 경우 초기화
-// 	if ($('.modal_wrap.').length == 0) {
-// 		dimmHidden();
-// 	}
-// }
-
-// // Alert popup
-// function ModalAlertOpen(target) {
-//   var _getTarget = $('[data-modal='+target+']');
-// 	_getTarget.css({ 'z-index': '1300' });
-// 	dimmVisible();
-// 	_getTarget.addClass('is_show');
-// }
-// function ModalAlertClose(id) {
-// 	_getTarget.removeClass('is_show').one('transitionend', function () {
-// 		if (!_getTarget.hasClass('is_show')) {
-// 			_getTarget.removeClass('');
-
-// 			// 남아있는 모달이 없는 경우 초기화
-// 			if ($('.modal_wrap.').length == 0) {
-// 				dimmHidden();
-// 			}
-// 		}
-// 	})
-// }
-
-// // Dimmed popup
-// function ModalOpen(target) {
-//   var _getTarget = $('[data-modal='+target+']');
-// 	_getTarget.css({ 'z-index': '1300' });
-// 	dimmVisible();
-// 	_getTarget.addClass('is_show');
-
-// 	$('.dimmer').click(function (e){
-// 		_getTarget.removeClass('is_show').one('transitionend', function () {
-// 			if (!_getTarget.hasClass('is_show')) {
-// 				_getTarget.removeClass('');
-
-// 				// 남아있는 모달이 없는 경우 초기화
-// 				if ($('.modal_wrap.').length == 0) {
-// 					dimmHidden();
-// 				}
-// 			}
-// 		})
-// 		//console.log(e.target);
-// 	});
-// }
-// function ModalOpenClose(target) {
-//   var _getTarget = $('[data-modal='+target+']');
-// 	_getTarget.removeClass('is_show').one('transitionend', function () {
-//     if (!_getTarget.hasClass('is_show')) {
-//       _getTarget.removeClass('');
-
-// 			// 남아있는 모달이 없는 경우 초기화
-// 			if ($('.modal_wrap.').length == 0) {
-// 				dimmHidden();
-// 			}
-// 		}
-// 	})
-// }
-// // ToastOpen
-// function ToastOpen(target) {
-//   var _getTarget = $('[data-modal='+target+']');
-// 	_getTarget.addClass('is_show');
-// 	setTimeout(function () { ToastClose(target) }, 3000);
-// }
-// function ToastClose(target) {
-// 	_getTarget.removeClass('is_show').one('transitionend', function () {
-// 		!_getTarget.hasClass('is_show') && _getTarget.removeClass('');
-// 	})
-// }
-
 // modal
 $.modal = function () {
   var btns = $('.modal_open');
@@ -640,20 +552,21 @@ function layerClose(target) {
 $.toast = function () {
   var toastbtns = $('.toast_open');
   toastbtns.on('click', function () {
+    console.log('click');
     toastOpen(this.getAttribute('aria-controls'), this);
     return false;
   });
 };
 // toastOpen
 function toastOpen(target) {
-  $(`[data-modal=${target}]`).addClass('is_show');
+  $(`[data-toast=${target}]`).addClass('is_show');
   setTimeout(function () {
     toastClose(target);
   }, 3000);
 }
 function toastClose(target) {
-  $(`[data-modal=${target}]`).removeClass('is_show').one('transitionend', function () {
-    !$(`[data-modal=${target}]`).hasClass('is_show');
+  $(`[data-toast=${target}]`).removeClass('is_show').one('transitionend', function () {
+    !$(`[data-toast=${target}]`).hasClass('is_show');
   });
 }
 var btnScroll = null;

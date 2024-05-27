@@ -108,6 +108,128 @@
   </script>
   <!-- //connectedConnected , slide 1개 -->
 </div>
+<div class="g_template w_small">
+  <!--큰 thumb-->
+  <div class="swiper swiper_gallery" data-swiper="swiperGallery">
+    <ul class="swiper-wrapper"> 
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img03.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img02.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img03.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img02.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img03.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img02.png" alt="">
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <!--작은 thumb-->
+  <div class="swiper swiper_gallery_small" data-swiper="swiperGallerySmall">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img03.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img02.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img03.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img02.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img03.png" alt="">
+          </div>
+        </a>
+      </li>
+      <li class="swiper-slide">
+        <a href="#none" class="product_item">
+          <div class="thumb">
+            <img src="../../assets/img/temp/pick_img02.png" alt="">
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <script>
+     var swiperGallerySmall = new Swiper('[data-swiper="swiperGallerySmall"]', {
+      spaceBetween: 4,
+      slidesPerView: 5,
+      freeMode: true,
+      centerInsufficientSlides: true,
+      watchSlidesProgress: true,
+      ally: false,
+    });
+    var swiperGallery = new Swiper('[data-swiper="swiperGallery"]', {
+      spaceBetween: 10,
+      ally: false,
+      navigation: {
+        nextEl: '[data-swiper="swiperGallery"] .swiper-button-next',
+        prevEl: '[data-swiper="swiperGallery"] .swiper-button-prev',
+      },
+      thumbs: {
+        swiper: swiperGallerySmall,
+      },
+    });
+   
+ 
+
+  </script>
+</div>
 <div class="g_template">
   <div class="tit_wrap between_center">
     <h2 class="tit_lv2">SWIPER_BANNER</h2>

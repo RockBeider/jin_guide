@@ -42,7 +42,6 @@
             <button type="button" class="btn">Tab</button> 
             <button type="button" class="btn">Form</button>
             <button type="button" class="btn">Accordion</button>
-            <button type="button" class="btn">List</button>
             <button type="button" class="btn">Table</button>
             <button type="button" class="btn">Etc</button>
           </div>
@@ -162,6 +161,128 @@
                   })
                 </script>
                 <!-- //connectedConnected , slide 1개 -->
+              </div>
+              <div class="g_template w_small">
+                <!--큰 thumb-->
+                <div class="swiper swiper_gallery" data-swiper="swiperGallery">
+                  <ul class="swiper-wrapper"> 
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+                <!--작은 thumb-->
+                <div class="swiper swiper_gallery_small" data-swiper="swiperGallerySmall">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="">
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <script>
+                   var swiperGallerySmall = new Swiper('[data-swiper="swiperGallerySmall"]', {
+                    spaceBetween: 4,
+                    slidesPerView: 5,
+                    freeMode: true,
+                    centerInsufficientSlides: true,
+                    watchSlidesProgress: true,
+                    ally: false,
+                  });
+                  var swiperGallery = new Swiper('[data-swiper="swiperGallery"]', {
+                    spaceBetween: 10,
+                    ally: false,
+                    navigation: {
+                      nextEl: '[data-swiper="swiperGallery"] .swiper-button-next',
+                      prevEl: '[data-swiper="swiperGallery"] .swiper-button-prev',
+                    },
+                    thumbs: {
+                      swiper: swiperGallerySmall,
+                    },
+                  });
+                 
+               
+
+                </script>
               </div>
               <div class="g_template">
                 <div class="tit_wrap between_center">
@@ -688,6 +809,22 @@
                     </a>
                   </li>
                 </ul>
+              </div>
+              <div class="g_template">
+                <a href="#none" class="product_item column">
+                  <div class="thumb"><img src="../../assets/img/temp/pick_img03.png"></div>
+                  <div class="info_area">
+                    <p class="tit">AMOMENTO</p>
+                    <p class="sub">아모멘토</p>
+                  </div>
+                </a>
+                <a href="#none" class="product_item column">
+                  <div class="thumb"><img src="../../assets/img/temp/pick_img03.png"></div>
+                  <div class="info_area">
+                    <p class="tit">AMOMENTO</p>
+                    <p class="sub">아모멘토</p>
+                  </div>
+                </a>
               </div>
 
             </div>
@@ -2367,9 +2504,12 @@
           </div>
 
           <div class="g_category">
-            <p class="g_tit">Accordion</p>
+            <p class="g_tit">Accordion</p> 
             <div class="g_cont">
-              
+              <div class="g_template">
+
+              </div>
+
             </div>
           </div>
 

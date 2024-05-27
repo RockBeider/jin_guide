@@ -64,15 +64,15 @@
   .btn_set { gap: 0; }
 }
 
-/* modal Bottomsheet */
 
-
-/* modal Toast */
 
 /* toast */
 .toast { 
   position: fixed; 
   left: 50%; bottom: 40px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 600px; 
   margin-left: -300px; 
   height: 50px;
@@ -82,30 +82,16 @@
   color: #fff;  
   text-align: center; 
   opacity: 0; 
-  transform: translateY(-20%); 
+  transform: translateY(20%); 
   transition: all 0.25s ease; 
   z-index: 1400; 
   &.is_show { opacity: 1; transform: translateY(0%); } 
   .toast_txt { font-size:14px; color: #fff; } 
 } 
 
-// .modal_wrap .toast { bottom: 96px;}
 
-// .modal .modal_close_btn { position:absolute; z-index: 101; top:16px; right: 16px; display:block; width:28px; height: 28px; cursor: pointer;
-//     background:url("../image/icon/icon_p_close.png") no-repeat center; font-size:0}  
+/* modal Bottomsheet */
 
-
-// .layerWrap.show .dimmer {
-  
-// }
-// .is_dimmed { overflow: hidden !important; touch-action:none !important; position: fixed; left:0; top:0; width: 100%; height: 100%; } 
-// .dimmer { visibility: hidden; opacity: 0; transition: all 0.5s ease; display: block; position: fixed; left: 0; top: 0; z-index: 1000; width: 100%; height: 100%; background-color: var(--bg-color-black02); -ms-touch-action: none; touch-action: none; } 
-// .is_visible .dimmer,
-// .is_visible.dimmer { visibility: visible; } 
-// .is_active .dimmer,
-// .is_active.dimmer { opacity: 1; } 
-// .is_active .modal_bottomsheet + .dimmer { opacity: 0.6; } 
-// .modal_wrap.is_visible { visibility: visible; pointer-events: auto; } 
 // .modal_wrap.is_active .modal_bottomsheet { transform: translateY(0%); transition: all 0.5s ease; } 
 
 
