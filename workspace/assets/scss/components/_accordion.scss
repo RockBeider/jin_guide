@@ -1,68 +1,10 @@
 /* accordion */
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  .acc_item {
-    border: 1px solid #ddd;
-    border-radius: 16px;
-  }
-  .acc_title {
-    position: relative;
-    font-weight: 700;
-  }
-  .acc_title .q {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 24px;
-    background: #069B66;
-    border-radius: 12px;
-    margin-right: 8px;
-    color: #fff;
-  }
+.acc_cont { 
+  display: none; 
+  &.is_active { display: block; }
 }
 
-
-.acc_trigger {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 72px;
-  padding: 0px 40px;
-  text-align: left;
-  font-weight: inherit;
-  :focus {
-    outline: 2px dashed #069B66;
-  }
-}
-
-.acc_trigger[aria-expanded="true"] .accordionIcon {
-  transform: rotate(180deg) translateY(50%);
-}
-
-.accordionIcon {
-  pointer-events: none;
-  transition: .3s;
-  position: absolute;
-  right: 32px;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  transform: translateY(-50%);
-  background: url(../adm_images/common/ico_24_down.png) no-repeat center / 24px 24px;
-}
-
-.accordionPanel {
-  margin: 0px 40px 40px;
-  padding: 20px;
-  background: #F6FBF7;
-  border-radius: 16px;
-  line-height: 1.5;
-}
-
-.accordionPanel[hidden] {
-  display: none;
+.accordionItem { 
+  .accordionPanel { display: none;}
+  &.is_open .accordionPanel { display: block;}
 }

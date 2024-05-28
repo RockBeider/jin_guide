@@ -1,145 +1,3 @@
-/* 접근성 아코디언 */
-var accordionDom = '.accordion';
-var accordionTitle = '.accordion .accortionTitle';
-var accordionInit = '.accordion .accortionTitle .accordionTrigger';
-var accordionTrigger = '.accordionTrigger';
-var accordionPanel = '.accordionPanel';
-var accordionItem = '.accordionItem';
-$.accordionAccessibility = function () {
-  class Accordion {
-    constructor(domNode) {
-      this.rootEl = domNode;
-      this.buttonEl = this.rootEl.querySelector('[aria-expanded]');
-      // console.log(this.buttonEl)
-      const controlsId = this.buttonEl.getAttribute('aria-controls');
-      this.contentEl = document.getElementById(controlsId);
-      this.open = this.buttonEl.getAttribute('aria-expanded') === 'true';
-      this.buttonEl.evt = this.onButtonClick;
-      this.buttonEl.This = this;
-    }
-    onButtonClick(e, This) {
-      const accordionOption = This.buttonEl.closest('[accordion-option]').getAttribute('accordion-option');
-      if (accordionOption === 'only') {
-        //only type
-        var status = This.buttonEl.parentNode.parentNode.classList.contains('isOpen');
-        if (status == false) {
-          //close 
-          This.buttonEl.closest('[accordion-option]').querySelectorAll(`${accordionTrigger}`).forEach(trigger => {
-            trigger.setAttribute('aria-expanded', 'false');
-            This.buttonEl.setAttribute('aria-expanded', 'true');
-          });
-          This.buttonEl.closest('[accordion-option]').querySelectorAll(`${accordionPanel}`).forEach(panel => {
-            panel.closest(`${accordionItem}`)?.classList.remove('isOpen');
-            panel.setAttribute('aria-hidden', true);
-            This.contentEl.removeAttribute('aria-hidden', false);
-          });
-          This.buttonEl.parentNode.parentNode.classList.add('isOpen');
-        } else {
-          // open
-          This.buttonEl.parentNode.parentNode.classList.remove('isOpen');
-          This.buttonEl.setAttribute('aria-expanded', false);
-          This.contentEl.setAttribute('aria-hidden', true);
-        }
-      } else {
-        //toggle type
-        This.toggle(!This.open);
-      }
-    }
-    toggle(open) {
-      if (open === this.open) {
-        return;
-      }
-      this.open = open;
-      this.buttonEl.setAttribute('aria-expanded', `${open}`);
-      if (open) {
-        this.contentEl.removeAttribute('aria-hidden', true);
-      } else {
-        this.contentEl.setAttribute('aria-hidden', true);
-      }
-    }
-    open() {
-      this.toggle(true);
-    }
-    close() {
-      this.toggle(false);
-    }
-  }
-  const accordions = document.querySelectorAll(`${accordionTitle}`);
-  $(document).on('click', `${accordionInit}`, function (e) {
-    if (!e.target.This) {
-      new Accordion(e.target.parentNode);
-    }
-    e.target.evt(e, e.target.This);
-  });
-};
-$.accordion = function () {
-  class Accordion {
-    constructor(domNode) {
-      this.rootEl = domNode;
-      this.buttonEl = this.rootEl.querySelector('[aria-expanded]');
-      // console.log(this.buttonEl)
-      const controlsId = this.buttonEl.getAttribute('aria-controls');
-      this.contentEl = document.getElementById(controlsId);
-      this.open = this.buttonEl.getAttribute('aria-expanded') === 'true';
-      this.buttonEl.evt = this.onButtonClick;
-      this.buttonEl.This = this;
-    }
-    onButtonClick(e, This) {
-      const accordionOption = This.buttonEl.closest('[accordion-option]').getAttribute('accordion-option');
-      if (accordionOption === 'only') {
-        //only type
-        var status = This.buttonEl.parentNode.parentNode.classList.contains('isOpen');
-        if (status == false) {
-          //close 
-          This.buttonEl.closest('[accordion-option]').querySelectorAll(`${accordionTrigger}`).forEach(trigger => {
-            trigger.setAttribute('aria-expanded', 'false');
-            This.buttonEl.setAttribute('aria-expanded', 'true');
-          });
-          This.buttonEl.closest('[accordion-option]').querySelectorAll(`${accordionPanel}`).forEach(panel => {
-            panel.closest(`${accordionItem}`)?.classList.remove('isOpen');
-            panel.setAttribute('aria-hidden', true);
-            This.contentEl.removeAttribute('aria-hidden', false);
-          });
-          This.buttonEl.parentNode.parentNode.classList.add('isOpen');
-        } else {
-          // open
-          This.buttonEl.parentNode.parentNode.classList.remove('isOpen');
-          This.buttonEl.setAttribute('aria-expanded', false);
-          This.contentEl.setAttribute('aria-hidden', true);
-        }
-      } else {
-        //toggle type
-        This.toggle(!This.open);
-      }
-    }
-    toggle(open) {
-      if (open === this.open) {
-        return;
-      }
-      this.open = open;
-      this.buttonEl.setAttribute('aria-expanded', `${open}`);
-      if (open) {
-        this.contentEl.removeAttribute('aria-hidden', true);
-      } else {
-        this.contentEl.setAttribute('aria-hidden', true);
-      }
-    }
-    open() {
-      this.toggle(true);
-    }
-    close() {
-      this.toggle(false);
-    }
-  }
-  const accordions = document.querySelectorAll(`${accordionTitle}`);
-  $(document).on('click', `${accordionInit}`, function (e) {
-    if (!e.target.This) {
-      new Accordion(e.target.parentNode);
-    }
-    e.target.evt(e, e.target.This);
-  });
-};
-
 /** comonent - btn_scroll **/
 var scrollingChkStatus = true;
 $.btnScroll = function () {
@@ -569,12 +427,20 @@ function toastClose(target) {
     !$(`[data-toast=${target}]`).hasClass('is_show');
   });
 }
+$.accordion = function () {
+  $('.accordion > .acc_header.is_active').next('.acc_cont').slideDown();
+  $(document).on("click", '.accordion > .acc_header', function (e) {
+    var _this = $(this);
+    var open = _this.closest(".accordion").find('.acc_header.is_active');
+    if (open[0] != _this[0]) open.removeClass('is_active').next('.acc_cont').slideUp('ease-out');
+    _this.toggleClass('is_active').next('.acc_cont').slideToggle('ease-out');
+  });
+};
 var btnScroll = null;
 var btnScrollType2 = null;
 $(function () {
   $.modal();
   $.toast();
-  console.log('!');
   $.tab();
   btnScroll = $.btnScroll();
   btnScrollType2 = $.btnScrollType2();
