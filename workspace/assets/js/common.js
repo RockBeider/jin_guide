@@ -108,19 +108,20 @@ $.btnScroll = function () {
 
 
 
-$.btnScrollType2 = function() {
+$.btnScrollType2 = function(){
+
 	// A - Z	브랜드 검색
-	var tabArea = $('.tab_brand_wrap .tab_menu').find('button');
+	var tabArea = $('.search_brand_lang_wrap .tab_menu').find('button');
 	tabArea.each(function (index, item) {
 
-		const _this = $(item);
+		const _this = $(item);	
 		_this.click(function () {
 			
 			//버튼이 클릭되면 ABC버튼 각 영어,한글은 초기화
 			$(".tab_menu button").removeClass("is_active");
 			$('section[class^="tab_lang_wrap"]').removeClass("is_active");
 			
-			//ABC / ㄱㄴㄷ 버튼
+			//ABC / ㄱㄴㄷ 버튼 
 			const $tab_id   = _this.attr('data-tab'); //영문,한글
 			if( $tab_id != null){
 			   if($tab_id == "tab_e"){
@@ -131,10 +132,7 @@ $.btnScrollType2 = function() {
 				  _this.addClass('is_active');
 			   }
 			}
-   
-			
 			if($(this).attr('data-target').includes("e_")){
-			   
 			   if($('section[class^="tab_lang_wrap"][data-id="tab_e"]')){
 				  $($('section[class^="tab_lang_wrap"][data-id="tab_e"]')).addClass("is_active");
 				  $($('button[data-tab="tab_e"]')).addClass("is_active");
@@ -147,28 +145,20 @@ $.btnScrollType2 = function() {
 			}
 			_this.addClass('is_active'); //해당 버튼 abc ㄱㄴㄷ 
 			scroll_tab($(this).attr('data-target')); // 스크롤 이동
-			
 		});
 	});
-
-
-  var scrollBox = $(".search_result_brand_wrap .auto_complete_wrap .tab_lang_wrap");
-  var tabBtns = $(".search_brand_wrap  .tab_style7 button")
+  
+	var scrollBox = $(".tab_scrorll_wrap .tab_lang_wrap");
+  var tabBtns = $(".search_brand_wrap  .tab_menu7 button")
   var tabBtns_word = $(".search_brand_wrap .search_brand_lang_wrap")
   var cont = scrollBox;
   var tabNow = 0;
 	var sizeArr = [];
 	var sumTopPos = 0;
 
-  if($(".total_search_word_wrap").length){
-     scrollBox = $(".total_search_word_wrap .tab_lang_wrap");
-     tabBtns = $(".total_search_word_wrap  .tab_style7 button")
-     tabBtns_word = $(".total_search_word_wrap .search_brand_lang_wrap")
-     cont = scrollBox;
-  } 
-  
   if(scrollBox.length == 0) return false;
-   
+  console.log('scrollBox.length',scrollBox.length)
+  
   /* 한/영 선택 */
 	tabBtns.off("click.tabBtns")
 	tabBtns.on("click.tabBtns",function () {
@@ -176,39 +166,35 @@ $.btnScrollType2 = function() {
     cont.hide().eq(n).show();
 		tabBtns_word.removeClass("is_active").eq(n).addClass("is_active");
 		scrollBox.scrollTop(0);
-		getTop(n);
+		getTop2(n);
 		tabNow = n;
 		tabBtns_word.each(function () {
 			this.btns.removeClass("is_active").eq(0).addClass("is_active");
-			this.cont.scrollLeft(0);
 		})
 	});
 
   /* 포지션 리셋 */
-	function getTop(n) {
+	function getTop2(n) {
     scrollBox.stop().scrollTop(0);
 		sizeArr = [];
 		var contTop = cont.eq(n).offset().top - sumTopPos;
 		var section = $("section", cont[n]);
-		// console.log(contTop) 
+		console.log(contTop) 
 		section.each(function () {
 			var sum = Math.ceil($(this).offset().top) - contTop
 			sizeArr.push(sum)
 		})
-		//  console.log(sizeArr)
+		 console.log(sizeArr)
 	}
   /* 단어별 클릭 셋팅 */
 	function wordInit() {
-    var cont = scrollBox.closest(".cont").not(".is_active");
-    cont.show()
     scrollSet()
-		getTop(tabNow);
+		getTop2(tabNow);
 		tabBtns_word.each(function () {
 			this.btns = $("button:not(:disabled)", this);
 			this.btns2 = $("button", this);
 			this.btns2.each(function (n) { this.nn = n })
 			this.btns2.off("click.word")
-			this.cont = $(".tab_sub", this);
       var btns = this.btns;
 			this.btns.off("click.word");
 			this.btns.each(function (n) {
@@ -220,28 +206,17 @@ $.btnScrollType2 = function() {
 			}).on("click.word", function () {
         
         scrollSet()
-        getTop(tabNow);
+        getTop2(tabNow);
 				var n = this.n;
         scrollBox.stop().scrollTop( sizeArr[n]  );
         setTimeout(()=>{wordChange(n),50})
-        // scrollBox.stop().animate({ scrollTop: sizeArr[n] - 2  },
-        // {
-        //   step: function () {
-        //     // sticky.css({ top: 0 })
-        //   }, done: function () {
-        //     wordChange(n);
-        //   }
-        // })
-        
 			})
 		})
     wordChange(0)
-    
-    cont.hide()
 	}
 	wordInit();
-  
-  
+
+
   function wordChange(idx){
 		var This = tabBtns_word[tabNow].btns.removeClass("is_active").eq(idx)
 		This.addClass("is_active")
@@ -252,14 +227,12 @@ $.btnScrollType2 = function() {
 	function scrollSet(){
     scrollBox.each(function(){
       var This = $(this);
-      var cont = $(".search_filter_modal .content_scroll_wrap");
-  
       This.scroll(function () {
         var now = This.scrollTop();
         var idx = 0;
-        // console.log(now)
+        console.log(now)
         sizeArr.forEach(function (chk, i) {
-          //console.log(chk , now)
+          console.log(chk , now)
           if (chk < now+2) {
             idx = i
             return false;
@@ -275,9 +248,7 @@ $.btnScrollType2 = function() {
   }
   return {init:wordInit}
 	
-	
 };
-
 
 //버튼클릭이동 -> 부드럽게
 function scroll_tab(anchor_id, speed) {
@@ -285,7 +256,7 @@ function scroll_tab(anchor_id, speed) {
   var a_tag = $("#" + anchor_id);
   if (a_tag.length > 0) {
 
-    $("html, body").stop().scrollTop(a_tag.offset().top - $(".sticky").height() - 100)
+    $("html, body").stop().scrollTop(a_tag.offset().top - 100)
   } else {
     console.log("no target");
   }
@@ -304,9 +275,9 @@ function scroll_tab(anchor_id, speed) {
 
   if (!speed) var speed = "slow";
 
-  //console.log("아이디:" + $('.tab_lang_wrap').offset().top);
-  // console.log("아이디:" + anchor_id);
-  // console.log("아이디:" + scrollValue);
+  console.log("아이디:" + $('.tab_lang_wrap').offset().top);
+  console.log("아이디:" + anchor_id);
+  console.log("아이디:" + scrollValue);
 
   if (a_tag.length > 0) {
     $(".tab_lang_wrap").stop().animate(
@@ -330,12 +301,12 @@ function scroll_tab01(anchor_id,speed) {
 	if(targetScroll.__overlayScrollbars__){
 		
 		if(anchor_id.includes("e_")){
-			// console.log("영")
+			console.log("영")
 			targetScroll = scrollBox[0]
 			targetScroll.__overlayScrollbars__.scroll({top:0})
 			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_e"]').offset().top;
 		}else{
-			// console.log("한")
+			console.log("한")
 			targetScroll = scrollBox[1]
 			targetScroll.__overlayScrollbars__.scroll({top:0})
 			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_k"]').offset().top;
@@ -344,21 +315,23 @@ function scroll_tab01(anchor_id,speed) {
 	}else{
 			
 		if(anchor_id.includes("e_")){
-			// console.log("영")
+			console.log("/영")
 			$('section[class^="tab_lang_wrap"][data-id="tab_e"]').scrollTop(0);
 			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_e"]').offset().top;
 		}else{
-			// console.log("한")
+			console.log("한")
 			$('section[class^="tab_lang_wrap"][data-id="tab_k"]').scrollTop(0);
 			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_k"]').offset().top;
 		}
 	}
 		
 	if( !speed ) var speed = 'slow';
-	//console.log("아이디:" + $('.tab_lang_wrap').offset().top);
-	// console.log("아이디:" + anchor_id);
-	// console.log("아이디:" + scrollValue);
 	
+	console.log("아이디:" + $('.tab_lang_wrap').offset().top);
+	console.log("아이디:" + anchor_id);
+	console.log("아이디:" + scrollValue);
+	
+
 	if(a_tag.length > 0){
 		if(targetScroll.__overlayScrollbars__){
 			targetScroll.__overlayScrollbars__.scroll({top:scrollValue})
@@ -374,6 +347,7 @@ function scroll_tab01(anchor_id,speed) {
 	//aa[0].__overlayScrollbars__.scroll({top:100})
 
 }
+
 
 
 // tab
