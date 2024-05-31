@@ -445,6 +445,37 @@ $.accordion = function () {
 };
 
 
+$.contentExpand = function (){
+  $('.content_expand').each(function(){
+    if(!this.heightChk){
+      var This = $(this);
+      var btns = $(this).siblings().find('.open_btn');
+      var hei = This.height();
+      this.heightChk = true;
+      if(hei > 40){
+          This.closest('.content_expand_wrap').addClass('closed')
+          this.showChk = false;
+          This.off('click');
+          btns.on('click',function(){
+              if(!this.showChk){
+                  This.css({height:'auto'})
+                  this.showChk = true;
+                  hei = This.height();
+                  This.closest('.content_expand_wrap').removeClass('closed')
+                  This.stop().css({height:40}).animate({height:hei})
+              }else{
+                  this.showChk = false;
+                  This.closest('.content_expand_wrap').addClass('closed')
+                  This.stop().animate({height:40})
+              }
+          })
+      }else{
+      btns.remove()
+      }
+    }
+});
+}
+
 
 var btnScroll = null
 var btnScrollType2 = null
@@ -452,6 +483,7 @@ $(function(){
   $.modal(); 
   $.toast(); 
 
+  $.contentExpand();
   $.tab();
   btnScroll = $.btnScroll();
   btnScrollType2 = $.btnScrollType2();

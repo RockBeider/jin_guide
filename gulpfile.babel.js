@@ -29,7 +29,7 @@ const browserSync = bsCreate();
  **************************************/ 
 const paths = {
 	work : { 
-		gindex: ['./workspace/index.html', './workspace/template.html'],
+		gindex: ['./workspace/index.html', './workspace/template.html', './workspace/template_bak.html'],
 		guide: ['./workspace/guide/html/**/*.html'],
 		gscss: './workspace/guide/scss/**/*.scss',
 		gimg: './workspace/guide/img/**/*', 
@@ -90,7 +90,7 @@ const styles = () =>
 const scripts = () => 
 	src(paths.work.js)
 		.pipe(babel())
-		.pipe(debug())
+		.pipe(debug()) 
 		.pipe(dest(paths.dist.js)) 
 
 const images = () => 
@@ -107,7 +107,7 @@ const fonts = () =>
  **************************************/ 
 const clean = () => deleteAsync(['./dist/'])
 
-const gindexClean = () => deleteAsync(['./dist/index.html', './dist/template.html'])
+const gindexClean = () => deleteAsync(['./dist/index.html', './dist/template.html', './dist/template_bak.html'])
 const guideClean = () => deleteAsync([paths.dist.guide])
 const gcssClean = () => deleteAsync([paths.dist.gcss])
 const gimgClean = () => deleteAsync([paths.dist.gimg])
