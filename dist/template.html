@@ -162,6 +162,115 @@
                 </script>
                 <!-- //connectedConnected , slide 1개 -->
               </div>
+
+              <!-- swiper -->
+              <div class="g_template w_small">
+                <!-- connectedConnected , slide 1개 -->
+                <div class="tit_wrap between_center">
+                  <h2 class="tit_lv2">SWIPER_CONNECTED</h2>
+                  <div class="pagination type_arrow" id="swiperTxtAni">
+                    <a href="#none" class="swiper-button-prev">앞으로</a>
+                    <a href="#none" class="swiper-button-next">뒤로</a>
+                  </div>
+                </div>
+                <div class="swiper swiper_connect" data-swiper="swiperTxtAni">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img01.png" alt="" />
+                        </div>
+                      </a>
+                    </li> 
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img02.png" alt="" />
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#none" class="product_item">
+                        <div class="thumb">
+                          <img src="../../assets/img/temp/pick_img03.png" alt="" />
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="badge_group fade">
+                    <div class="badge_set">	
+                      <div class="badge_item main"><p>EXCLUSIVEEXCLUSIVE1</p></div>										
+                      <div class="badge_item sub"><p>SOFT BAG1.0 SOFT BAG1.0 SOFT BAG1.0</p></div>			
+                    </div>
+                    <div class="badge_set">
+                      <div class="badge_item main"><p>EXCLUSIVE2</p></div>													
+                      <div class="badge_item sub"><p>SOFT BAG2.0</p></div>						
+                    </div>
+                    <div class="badge_set">
+                      <div class="badge_item main"><p>NEW BRAND3</p></div>													
+                      <div class="badge_item sub"><p>SOFT BAG3.0</p></div>						
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  $('[data-swiper="swiperTxtAni"]').each(function(){
+                    
+                    var badgeSlide2 = $('.badge_group.fade > .badge_set')
+                    var swiperTxtAni= new Swiper('[data-swiper="swiperTxtAni"]', {
+                      slidesPerView: 1,
+                      spaceBetween: 0, 
+                      threshold: 0,	
+                      loop: true,
+                      // autoplay: {
+                      //   delay: 3000,
+                      //   clickable: true,
+                      //   disableOnInteraction: false,
+                      // },
+                      pagination: {
+                          el: '.swiper-pagination-custom',
+                          type: 'custom',
+                          renderCustom: function (swiper, current, total) {
+                              return `<span class="current">${current}</span>/<span class="total">${total}</span>`; 
+                          },
+                      },
+                      navigation: {
+                        nextEl: '#swiperTxtAni .swiper-button-next',
+                        prevEl: '#swiperTxtAni .swiper-button-prev',
+                      },
+                      on: {
+                        slideChange: function () {
+                          badgeSlide2.hide().removeClass('is_active').eq(this.realIndex % badgeSlide2.length).addClass('is_active').show()
+                          setScrollAnimation(`.badge_group.fade .badge_set:eq(${this.realIndex % badgeSlide2.length}) .badge_item.main p`, 'fadein-text', true);
+                          setScrollAnimation(`.badge_group.fade .badge_set:eq(${this.realIndex % badgeSlide2.length}) .badge_item.sub p`, 'fadein-text', true);
+                        } ,
+                      },
+                    });
+
+                  })
+                  function setScrollAnimation(selector, effect, order, extra) {
+                    var effectName = effect;
+                    
+                    var text = $(selector).text();
+                    var numText = text.length;
+                    var newHtml = '';
+                    for (var i = 0; i < numText; i++) {
+                      if (text[i] === ' ') {
+                        newHtml += '<span class="blank"> </span>';
+                      } else {
+                        newHtml += '<span>' + text[i] + '</span>';
+                      }
+                    }
+                    $(selector).html(newHtml);
+                    $(selector).find('span').each(function(i) {
+                        setTimeout(function() {
+                          $(selector).find('span:eq(' + i + ')').addClass(effectName);
+                        }, (i * 40)
+                      );
+                    });
+                  }
+                </script>
+                <!-- //connectedConnected , slide 1개 -->
+              </div>
               <div class="g_template w_small">
                 <!--큰 thumb-->
                 <div class="swiper swiper_gallery" data-swiper="swiperGallery">
@@ -1049,7 +1158,7 @@
 
 
               <!-- 검색 -->
-                <!-- <div class="search_brand_wrap tab_wrap1">
+                <div class="search_brand_wrap tab_wrap1">
 
                   <div class="tab_menu7">
                     <button type="button" class="tab_btn is_active" data-tab="tab_e">ABC</button>
@@ -1113,7 +1222,7 @@
                   </div>
                 
                 </div>
-                <div class="tab_scrorll_wrap"> //class on 추가 시 display:block 처리 
+                <div class="tab_scrorll_wrap"> <!--//class on 추가 시 display:block 처리 -->
 
                   <section class="tab_lang_wrap is_active" data-id="tab_e">
                    
@@ -2465,7 +2574,7 @@
                   </section>
 
 
-                </div> -->
+                </div>
             </div>
           </div>
 

@@ -174,7 +174,50 @@ $path : '../../assets/img';
         }
       }
     }
+
+    .badge_group.fade {
+      position: absolute; z-index: 10;
+      .badge_set { row-gap: 0;}
+      .badge_item { 
+        position: unset; top: unset;
+        
+        &.main p {
+          height: 40px; font-size: 24px; line-height: 40px;
+          &::after { 
+            content: ''; 
+            position: absolute; bottom: 0; left: 0; 
+            display: block; width: 100%; height: 2px; 
+            background: #F20084; 
+          }
+        }
+        p { 
+          position: relative; display: inline-block; 
+          height: 36px; padding: 0 12px; background: #000; color: #fff; 
+          font-size: 14px; 
+          line-height: 36px;
+          &::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; 
+            display: block; 
+            width: 2px; height: 100%; 
+            background: #F20084; 
+          }
+          span { 
+            display: inline-block; letter-spacing: -0.5px; opacity: 0;
+            &.blank { display: inline-block; width: 5px;}
+            &.fadein-text {
+              animation: fadein-text 0.4s ease-out 0s 1 normal forwards;
+            }
+          }
+        }
+      }
+    }
   }
+}
+@keyframes fadein-text {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 /** swiper 배너 **/
