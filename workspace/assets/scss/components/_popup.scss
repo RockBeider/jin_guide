@@ -9,7 +9,7 @@
   .modal_header { position: relative; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; height: 50px; padding: 0 20px; }
   .modal_close { margin-left: auto; }
  
-  .modal_content { flex: 1; padding: 20px 20px 30px 20px; overflow: auto; }
+  .modal_content { padding: 20px 20px 30px 20px; overflow: auto; }
  
   .modal_footer { 
     .btn_set { gap: 0; }
