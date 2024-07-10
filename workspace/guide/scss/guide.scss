@@ -98,7 +98,7 @@ $point: #7952B3;
       padding: 0;  /* 별도 패딩 */
       .tab_wrap { padding: 20px 20px 0 20px}
       .scroll_wrap {  max-width: 800px; margin: 0 auto; }
-      .g_cont > *, .g_template > * {
+      .g_cont > *:not(.modal_wrap), .g_template > *:not(.modal_wrap) {
         margin-top: 12px; 
       }
 
@@ -143,6 +143,7 @@ $point: #7952B3;
 
 .g_category {
   margin-top: 12px;
+  padding: 0 10px;
   .g_tit {
     position: relative;
     margin-bottom: 8px;

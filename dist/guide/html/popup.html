@@ -1,92 +1,161 @@
 <div class="g_template">
-  <button type="button" class="btn_round">alert</button>
-  <br/>
-  <button type="button" class="btn_round modal_open" aria-controls="modalSmall">small popup</button>
-  <button type="button" class="btn_round modal_open" aria-controls="modalMedium">medium popup</button>
-  <button type="button" class="btn_round modal_open" aria-controls="modalLarge">large popup</button>
-  <br/>
-  <button type="button" class="btn_round">bottom popup : mobile</button>
-  <button type="button" class="btn_round toast_open" aria-controls="toast">toast popup : mobile</button>
-
-  <button type="button" class="btn_round">공지 popup</button>
-</div>
-
-
-
-<!-- modal dimmed small -->
-<div class="modal_wrap small" data-modal="modalSmall">
-  <div class="dimmer"></div>
-  <div class="modal">
-    <div class="modal_header">
-      <h3>Title</h3>
-      <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalSmall">닫기</button>
+  
+  <button type="button" class="btn_round toast_open" aria-controls="toast">toast</button><br/>
+  <!-- toast -->
+  <div class="toast_wrap" data-toast="toast">
+    <div class="inner">
+      <p class="toast_txt">토스트 입니다.</p>
     </div>
-    <div class="modal_content">
-      <div>
-        팝업 컨텐츠 들어갑니다.<br/>
-        팝업 컨텐츠 들어갑니다.<br/>
+  </div>
+  
+  <button type="button" class="btn_round modal_open" aria-controls="modalAlert">alert</button><br/>
+  <!-- modal alert -->
+  <div class="modal_wrap alert" data-modal="modalAlert">
+    <div class="dimmer"></div>
+    <div class="modal">
+      <div class="modal_header">
+        <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalAlert">닫기</button>
       </div>
-    </div>
-    <div class="modal_footer">
-      <div class="btn_set">
-        <button type="button" class="btn_white">NO</button>
-        <button type="button" class="btn_black">YES</button>
+      <div class="modal_content">
+        <div>
+          메시지가 나옵니다.
+        </div>
+      </div>
+      <div class="modal_footer">
+        <div class="btn_set">
+          <button type="button" class="btn_white">NO</button>
+          <button type="button" class="btn_black">YES</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- // modal dimmed small -->
-
-<!-- modal dimmed medium -->
-<div class="modal_wrap medium" data-modal="modalMedium">
-  <div class="dimmer"></div>
-  <div class="modal">
-    <div class="modal_header">
-      <h3>Title</h3>
-      <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalMedium">닫기</button>
-    </div>
-    <div class="modal_content">
-      <div>
-        팝업 컨텐츠 들어갑니다.<br/>
-        팝업 컨텐츠 들어갑니다.<br/>
+  <!-- // modal small -->
+  
+  <button type="button" class="btn_round modal_open" aria-controls="modalSmall">small : up -> down</button>
+  <!-- modal small -->
+  <div class="modal_wrap small effect_down" data-modal="modalSmall">
+    <div class="dimmer"></div>
+    <div class="modal">
+      <div class="modal_header">
+        <h3>Title</h3>
+        <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalSmall">닫기</button>
       </div>
-    </div>
-    <div class="modal_footer">
-      <div class="btn_set">
-        <button type="button" class="btn_white">NO</button>
-        <button type="button" class="btn_black">YES</button>
+      <div class="modal_content">
+        <div>
+          팝업 컨텐츠 들어갑니다.<br/>
+          팝업 컨텐츠 들어갑니다.<br/>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-<!-- // modal dimmed medium -->
-
-<!-- modal dimmed large -->
-<div class="modal_wrap large" data-modal="modalLarge">
-  <div class="dimmer"></div>
-  <div class="modal">
-    <div class="modal_header">
-      <h3>Title</h3>
-      <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalLarge">닫기</button>
-    </div>
-    <div class="modal_content">
-      <div>
-        팝업 컨텐츠 들어갑니다.<br/>
-        팝업 컨텐츠 들어갑니다.<br/>
-      </div>
-    </div>
-    <div class="modal_footer">
-      <div class="btn_set">
-        <button type="button" class="btn_white">NO</button>
-        <button type="button" class="btn_black">YES</button>
+      <div class="modal_footer">
+        <div class="btn_set">
+          <button type="button" class="btn_white">NO</button>
+          <button type="button" class="btn_black">YES</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- // modal dimmed large -->
+  <!-- // modal small -->
+  
+  <button type="button" class="btn_round modal_open" aria-controls="modalMedium">medium : down -> up</button>
+  <!-- modal medium -->
+  <div class="modal_wrap medium effect_up" data-modal="modalMedium">
+    <div class="dimmer"></div>
+    <div class="modal">
+      <div class="modal_header">
+        <h3>Title</h3>
+        <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalMedium">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div>
+          팝업 컨텐츠 들어갑니다.<br/>
+          팝업 컨텐츠 들어갑니다.<br/>
+        </div>
+      </div>
+      <div class="modal_footer">
+        <div class="btn_set">
+          <button type="button" class="btn_white">NO</button>
+          <button type="button" class="btn_black">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // modal medium -->
+  
+  <button type="button" class="btn_round modal_open" aria-controls="modalFull">Full</button><br/>
+  <!-- modal full -->
+  <div class="modal_wrap full" data-modal="modalFull">
+    <div class="dimmer"></div>
+    <div class="modal">
+      <div class="modal_header">
+        <h3>Title</h3>
+        <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalLarge">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div>
+          팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>팝업 컨텐츠 들어갑니다.<br/>
+        </div>
+      </div>
+      <div class="modal_footer">
+        <div class="btn_set">
+          <button type="button" class="btn_white">NO</button>
+          <button type="button" class="btn_black">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // modal full -->
+  
+  <button type="button" class="btn_round modal_open" aria-controls="modalBottomDefualt">bottom type : default</button>
+  <!-- modal bottom : default -->
+  <div class="modal_wrap type_bottom" data-modal="modalBottomDefualt">
+    <div class="dimmer"></div>
+    <div class="modal">
+      <div class="modal_header">
+        <h3>Title</h3>
+        <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalLarge">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div>
+          팝업 컨텐츠 들어갑니다.<br/>
+          팝업 컨텐츠 들어갑니다.<br/>
+        </div>
+      </div>
+      <div class="modal_footer">
+        <div class="btn_set">
+          <button type="button" class="btn_white">NO</button>
+          <button type="button" class="btn_black">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // modal bottom : default -->
+  
+  <button type="button" class="btn_round modal_open" aria-controls="modalBottomDrag">bottom type : drag</button>
+  <!-- modal bottom : type_bar -->
+  <div class="modal_wrap type_bottom type_bar" data-modal="modalBottomDrag">
+    <div class="dimmer"></div>
+    <div class="modal">
+      <div class="modal_header">
+        <button type="button" class="modal_close" aria-label="레이어 닫기" popup-close="modalLarge"><span class="blind">닫기</span></button>
+      </div>
+      <div class="modal_content">
+        <div>
+          팝업 컨텐츠 들어갑니다.<br/>
+          팝업 컨텐츠 들어갑니다.<br/>
+        </div>
+      </div>
+      <div class="modal_footer">
+        <div class="btn_set">
+          <button type="button" class="btn_white">NO</button>
+          <button type="button" class="btn_black">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // modal bottom : type_bar -->
 
-<!-- toast -->
-<div class="toast" data-toast="toast">
-  <p class="toast_txt">토스트 팝업입니다.</p>
 </div>
+
+
+
 

@@ -7,12 +7,8 @@ $.btnScroll = function () {
   var scrollWrap = $('.scroll_wrap');
   var scrollArr = []; // offset.top
   var scrollIdx = 0; // category index
-
-  // var tabBtns = $('.tab_menu .tab_btn');
   var scrollBtns = $('.scroll_menu');
 
-  // if (!tabBtns.length) return false;
- 
   function scrollInit() {
     getTop(scrollIdx); // category top 가져오기
     console.log('getTop 실행!!')
@@ -44,7 +40,6 @@ $.btnScroll = function () {
     //  console.log('scrollArr',scrollArr)
   }
 
-  // console.log(scrollWrap.length)
   function getScrollIdx(){ 
     scrollArea.scroll(function () { 
       var curScrollTop = scrollArea.scrollTop();
@@ -79,275 +74,7 @@ $.btnScroll = function () {
     This.addClass('is_active')
     // console.log('This',This[0])
   }
-
-  // function btnsToCenter(obj) { // 버튼 센터 이동
-  //   var wrap = $(obj);
-  //   var btnWrap = obj.parent
-  //   var myScrollPos = Math.floor(wrap.offset().left + wrap.outerWidth() / 2 + btnWrap.scrollLeft() - btnWrap.outerWidth() / 2) ;
-  //   btnWrap.stop().animate({ 'scrollLeft': myScrollPos })
-  //   console.log('wrap',wrap)
-  //   console.log('myScrollPos',myScrollPos)
-  // }
-
-  // function chnageTab(n) {
-  //   scrollWrap.hide().eq(n).show()
-  //   scrollWrap.removeClass('is_active').eq(n).addClass('is_active');
-  //   scrollArea.scrollTop(0)
-  //   getTop(n)
-  //   scrollIdx = n;
-  //   tabCont.each(function () {
-  //     this.btns.removeClass('is_active').eq(0).addClass('is_active')
-  //     this.cont.stop().scrollLeft(0)
-  //   })
-  // } 
-  // tabBtns.on('click',function () {
-  //   chnageTab($(this).index())
-  //   return;
-  // });
 }
-
-
-
-$.btnScrollType2 = function(){
-
-	// A - Z	브랜드 검색
-	var tabArea = $('.search_brand_lang_wrap .tab_menu').find('button');
-	tabArea.each(function (index, item) {
-
-		const _this = $(item);	
-		_this.click(function () {
-			
-			//버튼이 클릭되면 ABC버튼 각 영어,한글은 초기화
-			$(".tab_menu button").removeClass("is_active");
-			$('section[class^="tab_lang_wrap"]').removeClass("is_active");
-			
-			//ABC / ㄱㄴㄷ 버튼 
-			const $tab_id   = _this.attr('data-tab'); //영문,한글
-			if( $tab_id != null){
-			   if($tab_id == "tab_e"){
-				  $($('section[class^="tab_lang_wrap"][data-id="tab_e"]')).addClass("is_active");
-				  _this.addClass('is_active');
-			   }else{
-				  $($('section[class^="tab_lang_wrap"][data-id="tab_k"]')).addClass("is_active");
-				  _this.addClass('is_active');
-			   }
-			}
-			if($(this).attr('data-target').includes("e_")){
-			   if($('section[class^="tab_lang_wrap"][data-id="tab_e"]')){
-				  $($('section[class^="tab_lang_wrap"][data-id="tab_e"]')).addClass("is_active");
-				  $($('button[data-tab="tab_e"]')).addClass("is_active");
-			   }
-			}else{
-			   if($('section[class^="tab_lang_wrap"][data-id="tab_k"]')){
-				  $($('section[class^="tab_lang_wrap"][data-id="tab_k"]')).addClass("is_active");
-				  $($('button[data-tab="tab_k"]')).addClass("is_active");
-			   }
-			}
-			_this.addClass('is_active'); //해당 버튼 abc ㄱㄴㄷ 
-			scroll_tab($(this).attr('data-target')); // 스크롤 이동
-		});
-	});
-  
-	var scrollBox = $(".tab_scrorll_wrap .tab_lang_wrap");
-  var tabBtns = $(".search_brand_wrap  .tab_menu7 button")
-  var tabBtns_word = $(".search_brand_wrap .search_brand_lang_wrap")
-  var cont = scrollBox;
-  var tabNow = 0;
-	var sizeArr = [];
-	var sumTopPos = 0;
-
-  if(scrollBox.length == 0) return false;
-  console.log('scrollBox.length',scrollBox.length)
-  
-  /* 한/영 선택 */
-	tabBtns.off("click.tabBtns")
-	tabBtns.on("click.tabBtns",function () {
-    var n = $(this).index();
-    cont.hide().eq(n).show();
-		tabBtns_word.removeClass("is_active").eq(n).addClass("is_active");
-		scrollBox.scrollTop(0);
-		getTop2(n);
-		tabNow = n;
-		tabBtns_word.each(function () {
-			this.btns.removeClass("is_active").eq(0).addClass("is_active");
-		})
-	});
-
-  /* 포지션 리셋 */
-	function getTop2(n) {
-    scrollBox.stop().scrollTop(0);
-		sizeArr = [];
-		var contTop = cont.eq(n).offset().top - sumTopPos;
-		var section = $("section", cont[n]);
-		console.log(contTop) 
-		section.each(function () {
-			var sum = Math.ceil($(this).offset().top) - contTop
-			sizeArr.push(sum)
-		})
-		 console.log(sizeArr)
-	}
-  /* 단어별 클릭 셋팅 */
-	function wordInit() {
-    scrollSet()
-		getTop2(tabNow);
-		tabBtns_word.each(function () {
-			this.btns = $("button:not(:disabled)", this);
-			this.btns2 = $("button", this);
-			this.btns2.each(function (n) { this.nn = n })
-			this.btns2.off("click.word")
-      var btns = this.btns;
-			this.btns.off("click.word");
-			this.btns.each(function (n) {
-				this.n = n;
-				this.$ = $(this)
-				this.scroll = this.$.parent()
-				this.width = this.scroll.width();
-        this.friend = btns
-			}).on("click.word", function () {
-        
-        scrollSet()
-        getTop2(tabNow);
-				var n = this.n;
-        scrollBox.stop().scrollTop( sizeArr[n]  );
-        setTimeout(()=>{wordChange(n),50})
-			})
-		})
-    wordChange(0)
-	}
-	wordInit();
-
-
-  function wordChange(idx){
-		var This = tabBtns_word[tabNow].btns.removeClass("is_active").eq(idx)
-		This.addClass("is_active")
-  }
-
-
-	var wordNow = 0;
-	function scrollSet(){
-    scrollBox.each(function(){
-      var This = $(this);
-      This.scroll(function () {
-        var now = This.scrollTop();
-        var idx = 0;
-        console.log(now)
-        sizeArr.forEach(function (chk, i) {
-          console.log(chk , now)
-          if (chk < now+2) {
-            idx = i
-            return false;
-          }
-        });
-        if (wordNow != idx) {
-          wordNow = idx;
-          wordChange(wordNow)
-        }
-      })
-      
-    })
-  }
-  return {init:wordInit}
-	
-};
-
-//버튼클릭이동 -> 부드럽게
-function scroll_tab(anchor_id, speed) {
-  if (!speed) var speed = "slow";
-  var a_tag = $("#" + anchor_id);
-  if (a_tag.length > 0) {
-
-    $("html, body").stop().scrollTop(a_tag.offset().top - 100)
-  } else {
-    console.log("no target");
-  }
-
-  var scrollValue;
-  var a_tag = $("#" + anchor_id);
-  if (anchor_id.includes("e_")) {
-    // console.log("영")
-    $('section[class^="tab_lang_wrap"][data-id="tab_e"]').scrollTop(0);
-    scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_e"]').offset().top;
-  } else {
-    // console.log("한")
-    $('section[class^="tab_lang_wrap"][data-id="tab_k"]').scrollTop(0);
-    scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_k"]').offset().top;
-  }
-
-  if (!speed) var speed = "slow";
-
-  console.log("아이디:" + $('.tab_lang_wrap').offset().top);
-  console.log("아이디:" + anchor_id);
-  console.log("아이디:" + scrollValue);
-
-  if (a_tag.length > 0) {
-    $(".tab_lang_wrap").stop().animate(
-      {
-        scrollTop: scrollValue,
-      },
-      speed
-    );
-  } else {
-    console.log("no target");
-  }
-}
-
-function scroll_tab01(anchor_id,speed) {
-
-	var scrollValue;
-	var a_tag = $("#"+anchor_id);
-	var scrollBox = $('.tab_lang_wrap');
-	var targetScroll = scrollBox[0]
-	
-	if(targetScroll.__overlayScrollbars__){
-		
-		if(anchor_id.includes("e_")){
-			console.log("영")
-			targetScroll = scrollBox[0]
-			targetScroll.__overlayScrollbars__.scroll({top:0})
-			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_e"]').offset().top;
-		}else{
-			console.log("한")
-			targetScroll = scrollBox[1]
-			targetScroll.__overlayScrollbars__.scroll({top:0})
-			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_k"]').offset().top;
-		}
-
-	}else{
-			
-		if(anchor_id.includes("e_")){
-			console.log("/영")
-			$('section[class^="tab_lang_wrap"][data-id="tab_e"]').scrollTop(0);
-			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_e"]').offset().top;
-		}else{
-			console.log("한")
-			$('section[class^="tab_lang_wrap"][data-id="tab_k"]').scrollTop(0);
-			scrollValue = a_tag.offset().top - $('section[class^="tab_lang_wrap"][data-id="tab_k"]').offset().top;
-		}
-	}
-		
-	if( !speed ) var speed = 'slow';
-	
-	console.log("아이디:" + $('.tab_lang_wrap').offset().top);
-	console.log("아이디:" + anchor_id);
-	console.log("아이디:" + scrollValue);
-	
-
-	if(a_tag.length > 0){
-		if(targetScroll.__overlayScrollbars__){
-			targetScroll.__overlayScrollbars__.scroll({top:scrollValue})
-		}else{
-			scrollBox.stop().animate({
-			   scrollTop: scrollValue
-			}, speed);
-		}
-	}else{
-	   console.log("no target"); 
-	}
-
-	//aa[0].__overlayScrollbars__.scroll({top:100})
-
-}
-
 
 
 // tab
@@ -398,15 +125,56 @@ $.modal = function () {
 }
 /* modal control  */
 function layerOpen(target , obj){
-  // $('html').css({overflow:'hidden'})
+  $('html').css({overflow:'hidden'})
   var layer = $(`[data-modal=${target}]`)
   layer.addClass('is_show');
   layer.find('.modal').attr({tabindex:0}).focus();
   layer[0].focusTarget = obj;
+
+  if ($('.modal_wrap').hasClass('type_bar')) { // bar 타입의 경우
+    let startY;
+    let isDragging = false;
+    let popupHeight;
+
+    const $popup = $('.modal_wrap.type_bar .modal');
+    const $popupBtn = $('.modal_wrap.type_bar .modal_close');
+    $popup.css({ height: 'auto'});
+
+    $popupBtn.on('touchstart', function(e) {
+        startY = e.originalEvent.touches[0].clientY;
+        popupHeight = $popup.outerHeight();
+        isDragging = true;
+    });
+
+    $popupBtn.on('touchmove', function(e) {
+        if (!isDragging) return;
+        const touchY = e.originalEvent.touches[0].clientY;
+        const moveY = touchY - startY;
+        if (moveY > 0) {
+            $popup.css('height', (popupHeight - moveY) + 'px');
+        }
+    });
+
+    $popupBtn.on('touchend', function(e) {
+        isDragging = false;
+        const touchY = e.originalEvent.changedTouches[0].clientY;
+        const moveY = touchY - startY;
+        if (moveY > 100) {
+            $popup.css({ height: '0', padding: '0' });
+            setTimeout(() => {
+              layerClose(target);
+            }, 200);
+        } else {
+            $popup.css('height', 'auto');
+        }
+    });
+  }
+
+
 }
 
 function layerClose(target){
-  // $('html').css({overflow:'auto'})
+  $('html').css({overflow:'auto'})
   var layer = $(`[data-modal=${target}]`)
   layer.removeClass('is_show');
 
@@ -478,7 +246,6 @@ $.contentExpand = function (){
 
 
 var btnScroll = null
-var btnScrollType2 = null
 $(function(){
   $.modal(); 
   $.toast(); 
@@ -486,7 +253,6 @@ $(function(){
   $.contentExpand();
   $.tab();
   btnScroll = $.btnScroll();
-  btnScrollType2 = $.btnScrollType2();
 
   $.accordion();
 });
